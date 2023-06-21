@@ -16,6 +16,5 @@ export const GlobalStyle = createGlobalStyle`
   outline: none;
   box-sizing: border-box;  
   border: none;
-  font-family: 'Inter', sans-serif;
 }
 `;

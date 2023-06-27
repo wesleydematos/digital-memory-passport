@@ -1,13 +1,14 @@
 import { BgHowGet } from "../../Backgrounds/style";
 import { SquarePurple } from "../../Square/style";
+import { StyledHowGet } from "./style";
 
 function PgHowGet() {
   return (
     <>
       <BgHowGet>
         <div className="howGetTriangle" />
-        <div className="content">
-          <session>
+        <StyledHowGet>
+          <div className="session">
             <h1>
               HOW TO GET <span>YOUR&#39;S?</span>
             </h1>
@@ -19,14 +20,14 @@ function PgHowGet() {
               smartphone, and instantly transport yourself to the time and place
               where those memories were created.
             </p>
-          </session>
+          </div>
           <aside className="codes">
             <SquarePurple />
             <SquarePurple />
             <SquarePurple />
             <SquarePurple />
           </aside>
-        </div>
+        </StyledHowGet>
       </BgHowGet>
     </>
   );

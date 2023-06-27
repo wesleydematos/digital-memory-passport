@@ -55,6 +55,18 @@ export const MemoryContent = styled.div`
       color: var(--white-l);
       font-size: 1.5rem;
     }
+
+    img {
+      position: absolute;
+      top: calc(30vh);
+      height: 300px;
+      width: 300px;
+
+      @media (min-width: 768px) {
+        height: 550px;
+        width: 550px;
+      }
+    }
   }
 
   .share {

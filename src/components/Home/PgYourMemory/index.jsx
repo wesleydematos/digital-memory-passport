@@ -1,13 +1,14 @@
 import { BgYourMemory } from "../../Backgrounds/style";
 import { SquarePurple } from "../../Square/style";
+import { StyledYourMemory } from "./style";
 
 function PgYourMemory() {
   return (
     <>
       <BgYourMemory>
         <div className="memoryTriangle" />
-        <div className="content">
-          <session>
+        <StyledYourMemory>
+          <div className="session">
             <p>
               Embark on a captivating journey of nostalgia and exploration by
               acquiring your very own Digital Memory Passport. This innovative
@@ -15,16 +16,17 @@ function PgYourMemory() {
               moments in a unique and digital format.
             </p>
             <h1>
-              MINT <span>YOUR MEMORIE</span>
+              MINT <br />
+              <span>YOUR MEMORIE</span>
             </h1>
-          </session>
+          </div>
           <aside className="codes">
             <SquarePurple />
             <SquarePurple />
             <SquarePurple />
             <SquarePurple />
           </aside>
-        </div>
+        </StyledYourMemory>
       </BgYourMemory>
     </>
   );

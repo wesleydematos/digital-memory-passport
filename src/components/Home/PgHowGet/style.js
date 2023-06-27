@@ -36,10 +36,13 @@ export const StyledHowGet = styled.div`
   @media (min-width: 768px) {
     flex-direction: row;
 
-    .session {
+    .session,
+    .codes {
       height: 100vh;
       width: 50vw;
+    }
 
+    .session {
       h1 {
         font-size: 8rem;
         margin-bottom: 5vh;
@@ -52,7 +55,6 @@ export const StyledHowGet = styled.div`
     }
 
     .codes {
-      width: 50vw;
       justify-content: center;
       align-items: center;
       gap: 100px;

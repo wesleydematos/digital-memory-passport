@@ -1,14 +1,15 @@
 import { BgJoinUs } from "../../Backgrounds/style";
 import Socials from "../../Socials";
 import { SquarePurple } from "../../Square/style";
+import { StyledJoinUs } from "./style";
 
 function PgJoinUs() {
   return (
     <>
       <BgJoinUs>
         <div className="joinUsTriangle" />
-        <div className="content">
-          <session>
+        <StyledJoinUs>
+          <div className="session">
             <p>
               Embrace the advantages of owning a Digital Memory Passport and
               unlock a world of exclusive experiences, discounts, and
@@ -16,17 +17,18 @@ function PgJoinUs() {
               gateway to unforgettable adventures and meaningful interactions.
             </p>
             <h1>
-              JOIN <span>US</span>
+              JOIN <br />
+              <span>US</span>
             </h1>
             <Socials />
-          </session>
+          </div>
           <aside className="codes">
             <SquarePurple />
             <SquarePurple />
             <SquarePurple />
             <SquarePurple />
           </aside>
-        </div>
+        </StyledJoinUs>
       </BgJoinUs>
     </>
   );

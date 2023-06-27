@@ -1,16 +1,19 @@
 import { BgRoadMap } from "../../Backgrounds/style";
 import road from "../../../assets/road.png";
+import { StyledRoadMap } from "./style";
 
 function PgRoadMap() {
   return (
     <>
       <BgRoadMap>
-        <div className="content">
+        <StyledRoadMap>
           <h1>
-            ROAD <span>MAP</span>
+            ROAD <br />
+            <span>MAP</span>
           </h1>
+
           <img src={road} alt="Road Map" className="road" />
-        </div>
+        </StyledRoadMap>
         <div className="roadMapTriangle" />
       </BgRoadMap>
     </>

@@ -13,8 +13,10 @@ export const StyledHowGet = styled.div`
 
     h1 {
       text-align: center;
-      font-size: 2rem;
       color: var(--white-l);
+      font-size: 2rem;
+      line-height: 0.75;
+      font-weight: 900;
 
       span {
         color: var(--blue-l);

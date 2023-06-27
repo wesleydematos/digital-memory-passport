@@ -15,6 +15,8 @@ export const StyledYourMemory = styled.div`
       text-align: center;
       font-size: 2rem;
       color: var(--blue-l);
+      line-height: 0.75;
+      font-weight: 900;
 
       span {
         color: var(--white-l);

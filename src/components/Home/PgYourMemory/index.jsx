@@ -21,10 +21,10 @@ function PgYourMemory() {
             </h1>
           </div>
           <aside className="codes">
-            <SquarePurple />
-            <SquarePurple />
-            <SquarePurple />
-            <SquarePurple />
+            <SquarePurple className="square1" />
+            <SquarePurple className="square2" />
+            <SquarePurple className="square3" />
+            <SquarePurple className="square4" />
           </aside>
         </StyledYourMemory>
       </BgYourMemory>

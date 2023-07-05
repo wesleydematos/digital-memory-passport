@@ -4,6 +4,7 @@ export const StyledUnlockPassport = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  overflow: hidden;
 
   header {
     height: 20vh;
@@ -33,6 +34,7 @@ export const StyledUnlockPassport = styled.div`
     > button {
       align-content: center;
       background-color: transparent;
+      height: fit-content;
       color: var(--orange-l);
       font-size: 1.3rem;
       font-weight: 900;
@@ -66,8 +68,21 @@ export const StyledUnlockPassport = styled.div`
   @media (min-width: 768px) {
     header {
       justify-content: space-between;
+
+      > button {
+        margin-top: 2vh;
+      }
     }
 
+    .session {
+      h1 {
+        margin-top: 5vh;
+        font-size: 8rem;
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
     .session {
       h1 {
         margin-top: 7vh;

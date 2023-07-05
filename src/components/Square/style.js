@@ -16,4 +16,9 @@ export const SquarePurple = styled.div`
     height: 300px;
     width: 300px;
   }
+
+  @media (min-width: 2400px) {
+    height: 400px;
+    width: 400px;
+  }
 `;

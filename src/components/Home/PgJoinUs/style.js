@@ -4,8 +4,12 @@ export const StyledJoinUs = styled.div`
   display: flex;
   flex-direction: column;
   font-family: "Open Sans", sans-serif;
+  overflow: hidden;
 
   .session {
+    gap: 20px;
+    height: 50vh;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,12 +34,33 @@ export const StyledJoinUs = styled.div`
   }
 
   .codes {
+    gap: 2px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+
+    div {
+      margin: 0 2.5vw;
+    }
   }
 
   @media (min-width: 768px) {
+    .session {
+      h1 {
+        font-size: 6rem;
+        margin-bottom: 5vh;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  @media (min-width: 1800px) {
     flex-direction: row;
 
     .session,
@@ -45,6 +70,10 @@ export const StyledJoinUs = styled.div`
     }
 
     .session {
+      gap: 0;
+      height: auto;
+      padding: 0;
+
       p {
         margin-bottom: 5vh;
         width: 50%;
@@ -58,9 +87,28 @@ export const StyledJoinUs = styled.div`
     }
 
     .codes {
-      justify-content: center;
-      align-items: center;
-      gap: 100px;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 8vh 0;
+
+      div {
+        margin: 0;
+      }
+
+      .square1 {
+        margin-top: 1vh;
+        margin-inline: 8vw;
+      }
+
+      .square2,
+      .square4 {
+        margin-top: 8vh;
+      }
+
+      .square3 {
+        margin-bottom: 20vh;
+        margin-right: 8vw;
+      }
     }
   }
 `;

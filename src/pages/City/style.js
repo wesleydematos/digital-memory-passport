@@ -44,8 +44,12 @@ export const CityContent = styled.div`
     }
 
     button {
-      background-color: #d9bb8d;
-      color: var(--white-l);
+      align-content: center;
+      background-color: transparent;
+      height: fit-content;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 900;
     }
   }
 
@@ -142,13 +146,13 @@ export const CityContent = styled.div`
 
     .fact {
       width: 59%;
-      font-size: 2rem;
+      font-size: 1.5rem;
       text-align: left;
     }
 
     button {
       width: 80%;
-      font-size: 1.8rem;
+      font-size: 1rem;
     }
   }
 

@@ -59,8 +59,8 @@ export const MemoryContent = styled.div`
     img {
       position: absolute;
       top: calc(30vh);
-      height: 300px;
-      width: 300px;
+      height: 20px;
+      width: 20px;
 
       @media (min-width: 768px) {
         height: 550px;

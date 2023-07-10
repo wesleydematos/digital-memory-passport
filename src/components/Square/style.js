@@ -3,9 +3,13 @@ import styled from "styled-components";
 export const SquarePurple = styled.div`
   height: 160px;
   width: 160px;
-  border-radius: 5%;
-  background-color: var(--purple-l);
   z-index: 10;
+
+  img{
+    border-radius: 5%;
+    height: 100%;
+    width: 100%;
+  }
 
   @media (min-width: 768px) {
     height: 250px;

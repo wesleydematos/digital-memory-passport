@@ -1,28 +1,30 @@
 import { SquarePurple } from "../../components/Square/style";
 import { CityContent } from "./style";
+import { useNavigate } from 'react-router-dom';
 import sun from "../../assets/sol.png";
 import cloud from "../../assets/nuvem.png";
+import Login from "../../components/Login";
 
-function City() {
-  const city = "Syros";
-  const country = "Greece";
-  const fact =
-    "Here is a fun fact about Syros. Ermoupoli in Syros, is the capital of the island and of the Cyclades!";
+function City({nome,pais,descricao,image,metadata,link}) {
+
+  const navigateTo = useNavigate({replace:true});
 
   return (
     <CityContent>
-      <p>SOULFUL</p>
+      <p style={{cursor:'pointer'}} onClick={() => navigateTo('/',{ replace: true })}>SOULFUL</p>
       <main>
         <div className="content">
           <h1>
-            {city.toUpperCase()} <br /> <span>{country.toUpperCase()}</span>
+            {nome.toUpperCase()} <br /> <span>{pais.toUpperCase()}</span>
           </h1>
-          <p className="fact">{fact}</p>
-          <button className="scan">SCAN THE QR CODE TO GET YOURS!</button>
+          <p className="fact">{descricao}</p>
+          <Login nome={nome} image={image} link={link}/>
         </div>
         <div className="code">
           <img src={sun} alt="Sol" id="sun" />
-          <SquarePurple />
+          <SquarePurple>
+            <img src={image}/>
+          </SquarePurple>
           <img src={cloud} alt="nuvem" id="cloud" />
         </div>
       </main>

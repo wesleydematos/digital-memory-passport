@@ -2,8 +2,12 @@ import { BgBlueOrange } from "../../Backgrounds/style";
 import Socials from "../../Socials";
 import pageDown from "../../../assets/pagedown.gif";
 import { StyledUnlockPassport } from "./style";
+import { useNavigate } from 'react-router-dom';
 
 function PgUnlockPassport() {
+
+  const navigateTo = useNavigate({replace:true});
+
   function scrollDown() {
     window.scrollBy({
       top: window.innerHeight,
@@ -21,7 +25,7 @@ function PgUnlockPassport() {
               <Socials />
               <p>JOIN US</p>
             </div>
-            <p>SOULFUL</p>
+            <p style={{cursor:'pointer'}} onClick={() => navigateTo('/',{ replace: true })}>SOULFUL</p>
             <button>CONNECT WALLET</button>
           </header>
           <div className="session">

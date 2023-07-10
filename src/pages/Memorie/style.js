@@ -4,34 +4,35 @@ export const MemoryContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
   height: 100%;
 
   h1,
   .spin,
   .share {
-    width: 100%;
-    z-index: 100;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    z-index: 100;
   }
 
   h1,
   .spin {
-    height: calc(30vh);
+    height: 30vh;
 
     @media (min-width: 1024px) {
-      height: calc(42.5vh);
+      height: 42.5vh;
     }
   }
 
   h1 {
-    font-size: 2rem;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     text-align: center;
-    padding-top: calc(8vh);
     color: var(--white-l);
     line-height: 0.9;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 2rem;
+    padding-top: 8vh;
 
     span {
       color: var(--orange-l);
@@ -56,7 +57,7 @@ export const MemoryContent = styled.div`
       font-size: 1.5rem;
     }
 
-    img {
+    > img {
       position: absolute;
       top: calc(30vh);
       height: 20px;
@@ -67,10 +68,32 @@ export const MemoryContent = styled.div`
         width: 550px;
       }
     }
+
+    div {
+      height: 160px;
+      width: 160px;
+      z-index: 10;
+
+      > img {
+        border-radius: 5%;
+        height: 100%;
+        width: 100%;
+      }
+
+      @media (min-width: 768px) {
+        height: 250px;
+        width: 250px;
+      }
+
+      @media (min-width: 1024px) {
+        height: 300px;
+        width: 300px;
+      }
+    }
   }
 
   .share {
-    height: calc(20vh);
+    height: 20vh;
     color: var(--white-l);
     gap: 10px;
 
@@ -79,7 +102,7 @@ export const MemoryContent = styled.div`
     }
 
     @media (min-width: 1024px) {
-      height: calc(15vh);
+      height: 15vh;
     }
   }
 `;

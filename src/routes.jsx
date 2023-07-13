@@ -5,14 +5,16 @@ import db from '../src/database/firebase.config'
 import Home from "./pages/Home";
 import Memorie from "./pages/Memorie";
 import City from "./pages/City";
+import Nfts from './pages/Nfts';
 
 const RoutesMain = () => {
 
   const [routes, setRoutes] = useState();
+  const [routesPayments, setRoutesPayments] = useState();
 
   useEffect(() => {
 
-    const unsubscribe = onSnapshot(collection(db, 'mints'), snapshot =>{
+    const searchRoutes = onSnapshot(collection(db, 'mints'), snapshot =>{
         var routes = []
         snapshot.docs.map( async function (doc){
           if(doc.data().disponivel=="true"){
@@ -31,8 +33,24 @@ const RoutesMain = () => {
         setRoutes(routes);
     })
 
+    const searchRoutesPayments = onSnapshot(collection(db, 'link-payments'), snapshot =>{
+      var routesPayments = []
+      snapshot.docs.map( async function (doc){
+        routesPayments.push(
+          {
+            link: doc.id,
+            nome: doc.data().nome,
+            metadata: doc.data().metadata,
+            image: doc.data().image
+          }
+        ) 
+      })
+      setRoutesPayments(routesPayments);
+  })
+
     return () => {
-        unsubscribe()
+        searchRoutes()
+        searchRoutesPayments()
     }
   }, []);
 
@@ -40,7 +58,12 @@ const RoutesMain = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/memorie" element={<Memorie />} />
+        <Route path="/nfts" element={<Nfts />} />
+        {
+          routesPayments?.map((data) => (
+            <Route key={data.link} path={"/memorie/"+data.link} element={<Memorie nome={data.nome} image={data.image} metadata={data.metadata} word={data.link}/>} />
+          ))
+        }
         {
           routes?.map((data) => (
             <Route key={data.link} path={"/"+data.link} 

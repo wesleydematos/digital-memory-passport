@@ -1,6 +1,7 @@
 import { loadStripe } from '@stripe/stripe-js';
+import db from "../../database/firebase.config";
 
-export default function Stripe({nome,image,link}) {
+export default function Stripe({nome,image,link,metadata,word}) {
 
     let stripePromise;
     const getStripe = () => {
@@ -11,8 +12,14 @@ export default function Stripe({nome,image,link}) {
     };
 
     async function handleCheckout() {
-      localStorage.setItem('nome', nome)
-      localStorage.setItem('image', image)
+      await db.collection('link-payments').doc(word).set(
+        {
+          'nome':nome,
+          'metadata':metadata,
+          'image':image,
+          'minted':false
+        }
+      );
       const stripe = await getStripe();
       const { error } = await stripe.redirectToCheckout({
         lineItems: [
@@ -22,12 +29,13 @@ export default function Stripe({nome,image,link}) {
           },
         ],
         mode: 'payment',
-        successUrl: `http://localhost:5173/memorie`,
+        successUrl: 'http://localhost:5173/memorie/'+word,
         cancelUrl: 'http://localhost:5173/'+link,
         // customerEmail: 'customer@email.com',
       });
       console.warn(error.message);
+      localStorage.clear();
     }
   
-    return <button onClick={handleCheckout}>Buy</button>;
+    return <button style={{backgroundColor:'#D2EAF8',borderRadius:'8%'}}onClick={handleCheckout}>Buy</button>;
   }

@@ -7,13 +7,14 @@ export const StyledUnlockPassport = styled.div`
   overflow: hidden;
 
   header {
-    height: 20vh;
+    height: 30vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 2%;
 
     .socials {
+      padding: 10px;
       display: flex;
       flex-direction: column;
       align-items: center;

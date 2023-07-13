@@ -2,11 +2,16 @@ import React, { useState, useEffect } from "react";
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
 import Stripe from "../Stripe";
+import { generate } from "random-words";
+import { useNavigate } from 'react-router-dom';
+import db from "../../database/firebase.config";
 
 const clientId =
   '511396642771-raoickmie1u15a6o61j9ig70oqt9f9ik.apps.googleusercontent.com';
 
-function Login({nome,image,link}) {
+function Login({nome,image,link,metadata}) {
+
+  let generateWord = generate()
 
   const [user, setUser] = useState("");
 
@@ -17,7 +22,8 @@ function Login({nome,image,link}) {
       const foundUser = JSON.parse(loggedInUser);
       setUser(foundUser['name']);
     }else if(loggedWallet){
-      setUser(loggedWallet);
+      let accountStr = loggedWallet.substring(0,6)+"..."+loggedWallet.slice(-4);
+      setUser(accountStr);
     }
   }, []);
 
@@ -33,7 +39,7 @@ function Login({nome,image,link}) {
         const account = await ethereum.request({ method: 'eth_requestAccounts' });
         let accountStr = account[0].substring(0,6)+"..."+account[0].slice(-4);
         setUser(accountStr)
-        localStorage.setItem('wallet', accountStr)
+        localStorage.setItem('wallet', account[0])
     } catch (err) {
       console.log(err)
     }
@@ -81,7 +87,7 @@ function Login({nome,image,link}) {
             <p style={{fontSize:'1.5rem'}}>{"You are logged in as "+user}</p>
             <button onClick={handleLogout}>Logout</button>
             <br/><br/><br/>
-            <Stripe nome={nome} image={image} link={link}></Stripe>
+            <Stripe nome={nome} image={image} link={link} metadata={metadata} word={generateWord}></Stripe>
         </div>
       }
       

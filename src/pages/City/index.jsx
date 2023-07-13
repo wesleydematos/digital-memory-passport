@@ -18,7 +18,7 @@ function City({nome,pais,descricao,image,metadata,link}) {
             {nome.toUpperCase()} <br /> <span>{pais.toUpperCase()}</span>
           </h1>
           <p className="fact">{descricao}</p>
-          <Login nome={nome} image={image} link={link}/>
+          <Login nome={nome} image={image} link={link} metadata={metadata}/>
         </div>
         <div className="code">
           <img src={sun} alt="Sol" id="sun" />

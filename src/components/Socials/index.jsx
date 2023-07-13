@@ -1,4 +1,4 @@
-import { BsTwitter } from "react-icons/bs";
+import { BsTwitter, BsInstagram } from "react-icons/bs";
 import { SocialsContainer } from "./style";
 
 function Socials() {
@@ -7,6 +7,9 @@ function Socials() {
       <SocialsContainer>
         <button>
           <BsTwitter />
+        </button>
+        <button>
+          <BsInstagram />
         </button>
       </SocialsContainer>
     </>

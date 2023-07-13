@@ -22,7 +22,7 @@ export const MemoryContent = styled.div`
     height: 30vh;
 
     @media (min-width: 1024px) {
-      height: 42.5vh;
+      height: 50.5vh;
     }
   }
 
@@ -47,7 +47,7 @@ export const MemoryContent = styled.div`
     }
 
     @media (min-width: 1440px) {
-      font-size: 8rem;
+      font-size: 6rem;
     }
   }
 

@@ -1,43 +1,198 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef  } from "react";
 import { BgBlueOrange } from "../../components/Backgrounds/style";
 import Socials from "../../components/Socials";
 import { MemoryContent } from "./style";
 import spin from "../../assets/spin.gif";
+import { collection, getDocs, getDoc, doc, onSnapshot } from "firebase/firestore";
+import db from "../../database/firebase.config";
+import contract from '../../contracts/Certificate.json';
+import { ethers } from "ethers";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic'
 
-function Memorie() {
-  const [nome, setNome] = useState();
-  const [image, setImage] = useState();
+function Memorie({nome,image,metadata,word}) {
+  const initialized = useRef(false)
+  const [userGmail, setUserGmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false)
+
+  const contractAddress = "0x2Fb7BCAC5B8475443646AD1E93c4C475d8487dE0";
 
   useEffect(() => {
-    setNome(localStorage.getItem("nome"));
-    setImage(localStorage.getItem("image"));
+
+    if (!initialized.current) {
+      initialized.current = true
+      const loggedInUser = localStorage.getItem("user");
+      const loggedWallet = localStorage.getItem("wallet");
+      if (loggedInUser) {
+        const foundUser = JSON.parse(loggedInUser);
+        setUserGmail(foundUser['email']);
+        mintGmail()
+      }else if(loggedWallet){
+        mintNft()
+      }
+    }
+
   }, []);
 
+  async function mintGmail(){
+
+    setIsLoading(true);
+
+    const docSnapPayments = await getDoc(doc(db, "link-payments", word))
+    let gmail = JSON.parse(localStorage.getItem("user"))['email']
+    
+    if(docSnapPayments.data().minted) return
+
+    const wallets = await getDocs(collection(db, "wallets"));
+    let findWallet = 0
+    let addressFound = ""
+    wallets.forEach((wallet) => {
+        if(wallet.id == userGmail){
+            addressFound = wallet.data().address
+            findWallet+=1
+        }
+    });
+    if(findWallet==0){
+
+        const wallet = ethers.Wallet.createRandom()
+        await db.collection('wallets').doc(gmail).set({address: wallet.address,privateKey: btoa(wallet.privateKey),minted:[]});
+
+        addressFound = wallet.address;
+    }
+
+    const docSnap = await getDoc(doc(db, "master-key", "key"))
+    let masterKey = ""
+    masterKey  = atob(docSnap.data().privateKey);
+
+    let rpcProvider = "https://rpc-mumbai.maticvigil.com/";
+    let metadataMint = metadata;
+
+    const provider = new ethers.providers.JsonRpcProvider(rpcProvider);
+
+    const signer = new ethers.Wallet(masterKey, provider);
+
+    const nftContractReadonly = new ethers.Contract(contractAddress, contract.abi, provider);
+    const nftContract = nftContractReadonly.connect(signer);
+
+    let nftTxn = await nftContract.safeMint(
+        addressFound, 
+        metadataMint,
+        { value: ethers.utils.parseEther("0") }
+    );
+
+    await nftTxn.wait();
+
+    await db.collection('link-payments').doc(word).set(
+      {
+        'nome':nome,
+        'metadata':metadata,
+        'image':image,
+        'minted':true
+      }
+    );
+
+    const docSnapGmail = await getDoc(doc(db, "wallets", gmail))
+
+    let mintedNft = docSnapGmail.data().minted
+    mintedNft.push(image)
+
+    const docRef = doc(db, "wallets", gmail)
+    const data = {
+        minted: mintedNft
+    };
+    updateDoc(docRef, data)
+
+    setIsLoading(false);
+  }
+
+  async function mintNft(){
+
+    const docSnap = await getDoc(doc(db, "master-key", "key"))
+    let masterKey = ""
+    masterKey  = atob(docSnap.data().privateKey);
+
+    const docSnapPayments = await getDoc(doc(db, "link-payments", word))
+    
+    if(docSnapPayments.data().minted) return
+
+    try {
+
+        setIsLoading(true);
+
+        let rpcProvider = "https://rpc-mumbai.maticvigil.com/";
+        let metadataMint = metadata;
+
+        const provider = new ethers.providers.JsonRpcProvider(rpcProvider);
+
+        const signer = new ethers.Wallet(masterKey, provider);
+
+        const nftContractReadonly = new ethers.Contract(contractAddress, contract.abi, provider);
+        const nftContract = nftContractReadonly.connect(signer);
+
+        let nftTxn = await nftContract.safeMint(
+            localStorage.getItem("wallet"), 
+            metadataMint,
+            { value: ethers.utils.parseEther("0") }
+        );
+
+        await nftTxn.wait();
+
+        await db.collection('link-payments').doc(word).set(
+          {
+            'nome':nome,
+            'metadata':metadata,
+            'image':image,
+            'minted':true
+          }
+        );
+
+        setIsLoading(false);
+        
+    } catch (err) {
+        console.log(err.message)
+        setIsLoading(false);
+    }
+
+    
+  }
+
+  const options = {
+    position: 'bottom center',
+    timeout: 5000,
+    offset: '30px',
+    transition: 'scale'
+  }
+
   return (
-    <>
+    <AlertProvider template={AlertTemplate} {...options}>
       <BgBlueOrange>
-        <MemoryContent>
-          <h1>
-            YOU HAVE
-            <span>MADE YOUR MEMORIE</span>
-          </h1>
-          <div className="spin">
-            <img src={spin} alt="Orange spin" />
-            <div>
-              {/* <img src={image}/> */}
-              <img src="https://gateway.pinata.cloud/ipfs/QmSwQb4R9TdHzj1SJNUxSUa2iXE9cSRxaP277LftitR4za" />
+        {isLoading ? 
+          <div style={{height:'100vh',display:'flex',justifyContent:'center',alignItems:'center'}}>
+            <CircularProgress/>
+          </div>
+            :
+          <MemoryContent>
+            <h1>
+              YOU HAVE
+              <span>MADE YOUR MEMORIE</span>
+            </h1>
+            <div className="spin">
+              {/* <img src={spin} alt="Orange spin" /> */}
+              <div>
+                <img src={image}/>
+              </div>
+              <p>{nome}</p>
             </div>
-            {/* <p>{nome}</p> */}
-            <p>Syros</p>
-          </div>
-          <div className="share">
-            <p>Share with friends</p>
-            <Socials />
-          </div>
-        </MemoryContent>
+            <div className="share">
+              <p>Share with friends</p>
+              {/* <SocialsMemorie link={image} nome={nome}/> */}
+            </div>
+          </MemoryContent>
+        }
         <div className="triangle" />
       </BgBlueOrange>
-    </>
+    </AlertProvider>
   );
 }
 

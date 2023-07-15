@@ -66,7 +66,7 @@ function AboutUs() {
           transformative journey of discovery, authenticity, and the rewards
           that come with being part of a vibrant community of passionate
           travellers. Together, let&#39;s unlock the world and embrace the joy
-          of collecting <span>Memories</span>.
+          of collecting Memories.
         </p>
       </div>
     </StyledAboutUs>

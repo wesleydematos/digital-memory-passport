@@ -1,6 +1,10 @@
 import { BgYourMemory } from "../../Backgrounds/style";
 import { SquarePurple } from "../../Square/style";
 import { StyledYourMemory } from "./style";
+import img5 from "../../../assets/img5.jpg";
+import img6 from "../../../assets/img6.jpg";
+import img7 from "../../../assets/img7.jpg";
+import img8 from "../../../assets/img8.jpg";
 
 function PgYourMemory() {
   return (
@@ -21,10 +25,18 @@ function PgYourMemory() {
             </h1>
           </div>
           <aside className="codes">
-            <SquarePurple className="square1" />
-            <SquarePurple className="square2" />
-            <SquarePurple className="square3" />
-            <SquarePurple className="square4" />
+            <SquarePurple className="square1">
+              <img src={img5} alt="imagem" />
+            </SquarePurple>
+            <SquarePurple className="square2">
+              <img src={img6} alt="imagem" />
+            </SquarePurple>
+            <SquarePurple className="square3">
+              <img src={img7} alt="imagem" />
+            </SquarePurple>
+            <SquarePurple className="square4">
+              <img src={img8} alt="imagem" />
+            </SquarePurple>
           </aside>
         </StyledYourMemory>
       </BgYourMemory>

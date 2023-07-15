@@ -2,6 +2,10 @@ import { BgJoinUs } from "../../Backgrounds/style";
 import Socials from "../../Socials";
 import { SquarePurple } from "../../Square/style";
 import { StyledJoinUs } from "./style";
+import img9 from "../../../assets/img9.jpg";
+import img10 from "../../../assets/img10.jpg";
+import img11 from "../../../assets/img11.jpg";
+import img12 from "../../../assets/img12.jpg";
 
 function PgJoinUs() {
   return (
@@ -23,10 +27,18 @@ function PgJoinUs() {
             <Socials />
           </div>
           <aside className="codes">
-            <SquarePurple className="square1" />
-            <SquarePurple className="square2" />
-            <SquarePurple className="square3" />
-            <SquarePurple className="square4" />
+            <SquarePurple className="square1">
+              <img src={img9} alt="imagem" />
+            </SquarePurple>
+            <SquarePurple className="square2">
+              <img src={img10} alt="imagem" />
+            </SquarePurple>
+            <SquarePurple className="square3">
+              <img src={img11} alt="imagem" />
+            </SquarePurple>
+            <SquarePurple className="square4">
+              <img src={img12} alt="imagem" />
+            </SquarePurple>
           </aside>
         </StyledJoinUs>
       </BgJoinUs>

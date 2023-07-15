@@ -10,10 +10,10 @@ function AboutUs() {
           <span>US</span>
         </h1>
         <p>
-          About Soulful Lab - <a href="">Passport Digital NFT</a>
+          About <i>Soulful Lab</i> - <a href="">Passport Digital NFT</a>
         </p>
         <p>
-          At Soulful Lab we are passionate about exploring the world and
+          At <i>Soulful Lab</i> we are passionate about exploring the world and
           embracing the diverse cultures it has to offer. We have created a
           unique project that combines our love for travel, technology, and
           blockchain to provide a meaningful experience for avid adventurers and
@@ -39,7 +39,7 @@ function AboutUs() {
       <div className="pageTwo">
         <div className="triangleTwo" />
         <p>
-          The primary objective of Soulful Lab -{" "}
+          The primary objective of <i>Soulful Lab</i> -{" "}
           <a href="">Passport Digital NFT</a> is to empower travellers by
           granting them exclusive benefits and privileges based on their
           accumulated <span>Memories</span>. As individuals accumulate a
@@ -49,24 +49,24 @@ function AboutUs() {
         </p>
         <p>
           By growing a community of enthusiastic <span>Memories</span> holders,
-          Soulful Lab - <a href="">Passport Digital NFT</a> fosters a sense of
-          belonging and connection among like-minded travellers. Through our
-          platform, travellers can share their stories, discover new
+          <i>Soulful Lab</i> - <a href="">Passport Digital NFT</a> fosters a
+          sense of belonging and connection among like-minded travellers.
+          Through our platform, travellers can share their stories, discover new
           destinations, and inspire others to embark on their own journeys.
         </p>
         <p>
           We believe that travel is an enriching experience that broadens
           horizons, promotes cultural understanding, and encourages personal
-          growth. Soulful Lab - <a href="">Passport Digital NFT</a> aims to
-          providing travellers with a valuable tool to document and authenticate
-          their global adventures.
+          growth. <i>Soulful Lab</i> - <a href="">Passport Digital NFT</a> aims
+          to providing travellers with a valuable tool to document and
+          authenticate their global adventures.
         </p>
         <p>
-          Join us at Soulful Lab - Passport Digital NFT and embark on a
+          Join us at <i>Soulful Lab</i> - Passport Digital NFT and embark on a
           transformative journey of discovery, authenticity, and the rewards
           that come with being part of a vibrant community of passionate
           travellers. Together, let&#39;s unlock the world and embrace the joy
-          of collecting <span>Memories</span>.
+          of collecting Memories.
         </p>
       </div>
     </StyledAboutUs>

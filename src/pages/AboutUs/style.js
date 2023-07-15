@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StyledAboutUs = styled.div`
   color: var(--white-l);
-  overflow: hidden;
 
   .pageOne,
   .pageTwo {
@@ -22,6 +21,11 @@ export const StyledAboutUs = styled.div`
 
     a {
       color: var(--white-l);
+    }
+
+    p {
+      font-weight: 600;
+      z-index: 1000;
     }
   }
 
@@ -54,6 +58,7 @@ export const StyledAboutUs = styled.div`
 
   .pageOne {
     h1 {
+      z-index: 1000;
       align-self: center;
       text-align: center;
       line-height: 0.6;
@@ -63,6 +68,53 @@ export const StyledAboutUs = styled.div`
       span {
         font-size: 4rem;
       }
+    }
+  }
+
+  @media (min-width: 768px) {
+    p {
+      font-size: 1.75rem;
+    }
+
+    .pageOne,
+    .pageTwo {
+      padding: 0 5vw;
+    }
+
+    .pageOne {
+      h1 {
+        font-size: 4rem;
+
+        span {
+          font-size: 7rem;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    p {
+      font-size: 2rem;
+    }
+
+    .pageOne {
+      h1 {
+        font-size: 5rem;
+
+        span {
+          font-size: 15rem;
+        }
+      }
+    }
+
+    .pageTwo {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    p {
+      font-size: 2.3rem;
     }
   }
 `;

@@ -1,18 +1,18 @@
-import React ,{ useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import {collection, onSnapshot} from 'firebase/firestore'
-import db from '../src/database/firebase.config'
+import { collection, onSnapshot } from "firebase/firestore";
+import db from "../src/database/firebase.config";
 import Home from "./pages/Home";
 import Memorie from "./pages/Memorie";
 import City from "./pages/City";
+import Terms from "./pages/Terms";
+import AboutUs from "./pages/AboutUs";
 
 const RoutesMain = () => {
-
   const [routes, setRoutes] = useState();
   const [routesPayments, setRoutesPayments] = useState();
 
   useEffect(() => {
-
     const searchRoutes = onSnapshot(collection(db, 'mints'), snapshot =>{
         var routes = []
         snapshot.docs.map( async function (doc){
@@ -41,17 +41,17 @@ const RoutesMain = () => {
             link: doc.id,
             nome: doc.data().nome,
             metadata: doc.data().metadata,
-            image: doc.data().image
-          }
-        ) 
-      })
-      setRoutesPayments(routesPayments);
-  })
+            image: doc.data().image,
+          });
+        });
+        setRoutesPayments(routesPayments);
+      }
+    );
 
     return () => {
-        searchRoutes()
-        searchRoutesPayments()
-    }
+      searchRoutes();
+      searchRoutesPayments();
+    };
   }, []);
 
   return (
@@ -70,6 +70,8 @@ const RoutesMain = () => {
             />
           ))
         }
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/about-us" element={<AboutUs />} />
       </Routes>
     </>
   );

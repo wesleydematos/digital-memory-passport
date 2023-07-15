@@ -5,7 +5,6 @@ import db from '../src/database/firebase.config'
 import Home from "./pages/Home";
 import Memorie from "./pages/Memorie";
 import City from "./pages/City";
-import Nfts from './pages/Nfts';
 
 const RoutesMain = () => {
 
@@ -25,7 +24,8 @@ const RoutesMain = () => {
                   descricao: doc.data().descricao,
                   metadata: doc.data().metadata,
                   pais: doc.data().pais,
-                  image: doc.data().image
+                  image: doc.data().image,
+                  gratis: doc.data().gratis
               }
             ) 
           }
@@ -58,7 +58,6 @@ const RoutesMain = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/nfts" element={<Nfts />} />
         {
           routesPayments?.map((data) => (
             <Route key={data.link} path={"/memorie/"+data.link} element={<Memorie nome={data.nome} image={data.image} metadata={data.metadata} word={data.link}/>} />
@@ -67,7 +66,7 @@ const RoutesMain = () => {
         {
           routes?.map((data) => (
             <Route key={data.link} path={"/"+data.link} 
-              element={<City nome={data.nome} pais={data.pais} descricao={data.descricao} image={data.image} metadata={data.metadata} link={data.link}/>} 
+              element={<City nome={data.nome} pais={data.pais} descricao={data.descricao} image={data.image} metadata={data.metadata} link={data.link} gratis={data.gratis}/>} 
             />
           ))
         }

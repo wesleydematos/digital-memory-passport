@@ -9,9 +9,9 @@ import db from "../../database/firebase.config";
 const clientId =
   '511396642771-raoickmie1u15a6o61j9ig70oqt9f9ik.apps.googleusercontent.com';
 
-function Login({nome,image,link,metadata}) {
+function Login({nome,image,link,metadata,gratis}) {
 
-  let generateWord = generate()
+  let generateWord = generate()+generate()
 
   const [user, setUser] = useState("");
 
@@ -87,7 +87,7 @@ function Login({nome,image,link,metadata}) {
             <p style={{fontSize:'1.5rem'}}>{"You are logged in as "+user}</p>
             <button onClick={handleLogout}>Logout</button>
             <br/><br/><br/>
-            <Stripe nome={nome} image={image} link={link} metadata={metadata} word={generateWord}></Stripe>
+            <Stripe nome={nome} image={image} link={link} metadata={metadata} word={generateWord} gratis={gratis}></Stripe>
         </div>
       }
       

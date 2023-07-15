@@ -25,13 +25,13 @@ function SocialsMemorie({link,nome}) {
             title={"test"}
             url={"https://cafe3ponto0commrjo.xyz/"}
         >
-            <BsTwitter/>
+            <BsTwitter color="white"/>
         </TwitterShareButton>
         <button onClick={copyLinkImage}>
-          <BsLink45Deg/>
+          <BsLink45Deg color="white"/>
         </button>
         <button onClick={downloadImage}>
-          <BsDownload/>
+          <BsDownload color="white"/>
         </button>
       </SocialsContainer>
     </>

@@ -59,7 +59,7 @@ export const StyledUnlockPassport = styled.div`
 
     img {
       cursor: pointer;
-      z-index: 10000;
+      z-index: 1000;
       height: 200px;
       width: 130px;
       padding-bottom: 8vh;

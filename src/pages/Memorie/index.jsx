@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef  } from "react";
 import { BgBlueOrange } from "../../components/Backgrounds/style";
-import Socials from "../../components/Socials";
+import SocialsMemorie from "../../components/SocialsMemorie";
 import { MemoryContent } from "./style";
 import spin from "../../assets/spin.gif";
-import { collection, getDocs, getDoc, doc, onSnapshot } from "firebase/firestore";
+import { collection, getDocs, getDoc, doc, updateDoc } from "firebase/firestore";
 import db from "../../database/firebase.config";
 import contract from '../../contracts/Certificate.json';
 import { ethers } from "ethers";
@@ -16,7 +16,8 @@ function Memorie({nome,image,metadata,word}) {
   const [userGmail, setUserGmail] = useState("");
   const [isLoading, setIsLoading] = useState(false)
 
-  const contractAddress = "0x2Fb7BCAC5B8475443646AD1E93c4C475d8487dE0";
+  //Mumbai
+  const contractAddress = "0xDBEeC081964A89f76270991E4b47DD65aeE97E32";
 
   useEffect(() => {
 
@@ -42,7 +43,10 @@ function Memorie({nome,image,metadata,word}) {
     const docSnapPayments = await getDoc(doc(db, "link-payments", word))
     let gmail = JSON.parse(localStorage.getItem("user"))['email']
     
-    if(docSnapPayments.data().minted) return
+    if(docSnapPayments.data().minted){
+      setIsLoading(false);
+      return
+    } 
 
     const wallets = await getDocs(collection(db, "wallets"));
     let findWallet = 0
@@ -95,7 +99,7 @@ function Memorie({nome,image,metadata,word}) {
     const docSnapGmail = await getDoc(doc(db, "wallets", gmail))
 
     let mintedNft = docSnapGmail.data().minted
-    mintedNft.push(image)
+    mintedNft.push({'image':image,'nome':nome})
 
     const docRef = doc(db, "wallets", gmail)
     const data = {
@@ -108,17 +112,20 @@ function Memorie({nome,image,metadata,word}) {
 
   async function mintNft(){
 
+    setIsLoading(true);
+
     const docSnap = await getDoc(doc(db, "master-key", "key"))
     let masterKey = ""
     masterKey  = atob(docSnap.data().privateKey);
 
     const docSnapPayments = await getDoc(doc(db, "link-payments", word))
     
-    if(docSnapPayments.data().minted) return
+    if(docSnapPayments.data().minted){
+      setIsLoading(false);
+      return
+    } 
 
     try {
-
-        setIsLoading(true);
 
         let rpcProvider = "https://rpc-mumbai.maticvigil.com/";
         let metadataMint = metadata;
@@ -186,7 +193,7 @@ function Memorie({nome,image,metadata,word}) {
             </div>
             <div className="share">
               <p>Share with friends</p>
-              {/* <SocialsMemorie link={image} nome={nome}/> */}
+              <SocialsMemorie link={image} nome={nome}/>
             </div>
           </MemoryContent>
         }

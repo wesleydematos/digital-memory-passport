@@ -5,7 +5,7 @@ import sun from "../../assets/sol.png";
 import cloud from "../../assets/nuvem.png";
 import Login from "../../components/Login";
 
-function City({nome,pais,descricao,image,metadata,link}) {
+function City({nome,pais,descricao,image,metadata,link,gratis}) {
 
   const navigateTo = useNavigate({replace:true});
 
@@ -18,7 +18,7 @@ function City({nome,pais,descricao,image,metadata,link}) {
             {nome.toUpperCase()} <br /> <span>{pais.toUpperCase()}</span>
           </h1>
           <p className="fact">{descricao}</p>
-          <Login nome={nome} image={image} link={link} metadata={metadata}/>
+          <Login nome={nome} image={image} link={link} metadata={metadata} gratis={gratis}/>
         </div>
         <div className="code">
           <img src={sun} alt="Sol" id="sun" />

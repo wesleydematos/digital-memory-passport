@@ -3,18 +3,17 @@ import { BgBlueOrange } from "../../Backgrounds/style";
 import Socials from "../../Socials";
 import pageDown from "../../../assets/pagedown.gif";
 import { StyledUnlockPassport } from "./style";
-import { useNavigate } from 'react-router-dom';
-import { GoogleLogin } from '@react-oauth/google';
+import { useNavigate, Link } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { BsPersonLinesFill } from "react-icons/bs";
 import ProfileDropdown from "../../Dropdown";
 
 const clientId =
-  '511396642771-raoickmie1u15a6o61j9ig70oqt9f9ik.apps.googleusercontent.com';
+  "511396642771-raoickmie1u15a6o61j9ig70oqt9f9ik.apps.googleusercontent.com";
 
 function PgUnlockPassport() {
-
-  const navigateTo = useNavigate({replace:true});
+  const navigateTo = useNavigate({ replace: true });
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
 
@@ -22,8 +21,8 @@ function PgUnlockPassport() {
     const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser);
-      setUser(foundUser['name']);
-      setEmail(foundUser['email'])
+      setUser(foundUser["name"]);
+      setEmail(foundUser["email"]);
     }
   }, []);
 
@@ -35,12 +34,12 @@ function PgUnlockPassport() {
     });
   }
 
-  const onSuccess = async res => {
+  const onSuccess = async (res) => {
     const token = res.credential;
     const decoded = jwt_decode(token);
-    setUser(decoded['name'])
-    setEmail(decoded['email'])
-    localStorage.setItem('user', JSON.stringify(decoded))
+    setUser(decoded["name"]);
+    setEmail(decoded["email"]);
+    localStorage.setItem("user", JSON.stringify(decoded));
   };
 
   const onFailure = () => {
@@ -58,20 +57,32 @@ function PgUnlockPassport() {
               <Socials />
               <p>JOIN US</p>
             </div>
-            <p style={{cursor:'pointer'}} onClick={() => navigateTo('/',{ replace: true })}>SOULFUL</p>
-            {user == "" ?
+            <div className="soulful">
+              <p
+                style={{ cursor: "pointer" }}
+                onClick={() => navigateTo("/", { replace: true })}
+              >
+                SOULFUL
+              </p>
+
+              <div>
+                <Link to="/about-us">ABOUT US</Link>
+                <Link to="/terms">TERMS OF USE</Link>
+              </div>
+            </div>
+            {user == "" ? (
               <GoogleLogin
                 clientId={clientId}
                 buttonText="Login"
                 onSuccess={onSuccess}
                 onFailure={onFailure}
-                cookiePolicy={'single_host_origin'}
-                style={{ marginTop: '100px' }}
+                cookiePolicy={"single_host_origin"}
+                style={{ marginTop: "100px" }}
                 isSignedIn={true}
               />
-                :
+            ) : (
               <ProfileDropdown user={user} email={email}></ProfileDropdown>
-            }
+            )}
           </header>
           <div className="session">
             <h1>UNLOCK YOUR PASSPORT OF DIGITAL MEMORIES</h1>

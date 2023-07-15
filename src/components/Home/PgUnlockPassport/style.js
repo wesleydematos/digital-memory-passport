@@ -26,10 +26,22 @@ export const StyledUnlockPassport = styled.div`
       }
     }
 
-    > p {
+    .soulful > p {
       font-family: "Barrio", sans-serif;
       color: var(--white-l);
       font-size: 3.5rem;
+    }
+
+    .soulful > div {
+      display: flex;
+      justify-content: space-between;
+      color: var(--white-l);
+
+      a {
+        text-decoration: none;
+        font-family: "Barrio", sans-serif;
+        color: var(--white-l);
+      }
     }
 
     > button {

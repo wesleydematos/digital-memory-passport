@@ -4,6 +4,7 @@ function Terms() {
   return (
     <StyledTerms>
       <div className="pageOne">
+        <div className="triangle" />
         <h1>
           TERMS OF <br />
           <span>USE</span>
@@ -110,6 +111,7 @@ function Terms() {
       </div>
 
       <div className="pageThree">
+        <div className="triangleTwo" />
         <ol>
           <li>
             <b>5. Changes to the Terms and Conditions:</b>

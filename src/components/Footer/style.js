@@ -1,22 +1,13 @@
 import styled from "styled-components";
 
-const color = "var(--orange-l)";
+const color = "var(--white-l)";
 
 export const StyledFooter = styled.footer`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: ${(props) => props.primaryColor || "var(--blue-l)"};
+  background-color: ${(props) => props.primaryColor || "var(--orange-l)"};
   height: 14vh;
-
-  .triangleFooter {
-    align-self: flex-end;
-    display: ${(props) => props.display || "block"};
-    background-color: ${(props) => props.secundaryColor || "var(--orange-l)"};
-    width: 25%;
-    height: 100%;
-    clip-path: polygon(100% 100%, 100% 0%, 0% 0%);
-  }
 
   .content {
     position: absolute;

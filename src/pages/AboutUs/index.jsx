@@ -1,9 +1,19 @@
 import { StyledAboutUs } from "./style";
+import { useNavigate } from "react-router-dom";
 
 function AboutUs() {
+  const navigateTo = useNavigate({ replace: true });
+
   return (
     <StyledAboutUs>
       <div className="pageOne">
+        <p
+          className="soulful"
+          style={{ cursor: "pointer" }}
+          onClick={() => navigateTo("/", { replace: true })}
+        >
+          SOULFUL
+        </p>
         <div className="triangle" />
         <h1>
           ABOUT <br />

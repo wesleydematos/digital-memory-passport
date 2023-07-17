@@ -7,7 +7,7 @@ export const StyledFooter = styled.footer`
   flex-direction: column;
   overflow: hidden;
   background-color: ${(props) => props.primaryColor || "var(--orange-l)"};
-  height: 14vh;
+  min-height: 14vh;
 
   .content {
     position: absolute;

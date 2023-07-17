@@ -14,6 +14,7 @@ export const StyledUnlockPassport = styled.div`
     padding: 2%;
 
     .socials {
+      min-width: 250px;
       padding: 10px;
       display: flex;
       flex-direction: column;

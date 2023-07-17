@@ -5,7 +5,6 @@ function Footer() {
   return (
     <>
       <StyledFooter>
-        <div className="triangleFooter" />
         <div className="content">
           <p>© 2023 - Some rights reserved</p>
           <div className="developers">

@@ -18,7 +18,7 @@ export const StyledRdStep = styled.div`
     color: var(--white-l);
     position: absolute;
     right: 17vw;
-    top: 610vh;
+    top: 605vh;
     font-size: 5rem;
     line-height: 0.75;
     font-weight: 900;
@@ -60,6 +60,7 @@ export const StyledRdStep = styled.div`
     padding-bottom: 25vh;
 
     h1 {
+      top: 610vh;
       right: 10vw;
       font-size: 6.5rem;
       line-height: 0.6;

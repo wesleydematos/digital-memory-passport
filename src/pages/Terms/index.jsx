@@ -1,10 +1,20 @@
 import { StyledTerms } from "./style";
+import { useNavigate } from "react-router-dom";
 
 function Terms() {
+  const navigateTo = useNavigate({ replace: true });
+
   return (
     <StyledTerms>
       <div className="pageOne">
         <div className="triangle" />
+        <p
+          className="soulful"
+          style={{ cursor: "pointer" }}
+          onClick={() => navigateTo("/", { replace: true })}
+        >
+          SOULFUL
+        </p>
         <h1>
           TERMS OF <br />
           <span>USE</span>

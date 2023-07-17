@@ -7,9 +7,9 @@ export const StyledAboutUs = styled.div`
   .pageTwo {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     text-align: justify;
-    height: 100vh;
+    min-height: 115vh;
     color: var(--white-l);
     background-color: var(--orange-l);
     padding: 0 10px;
@@ -27,6 +27,12 @@ export const StyledAboutUs = styled.div`
       font-weight: 600;
       z-index: 1000;
     }
+  }
+
+  .soulful {
+    margin-top: 2.2vh;
+    font-family: "Barrio", sans-serif;
+    align-self: center;
   }
 
   .triangle,
@@ -49,7 +55,7 @@ export const StyledAboutUs = styled.div`
   }
 
   .triangleTwo {
-    margin-top: 75vh;
+    margin-top: 90vh;
     height: 25vh;
     width: 75vw;
     left: 0;
@@ -63,7 +69,7 @@ export const StyledAboutUs = styled.div`
       text-align: center;
       line-height: 0.6;
       font-weight: 900;
-      margin-bottom: 30px;
+      margin: 10px 0 30px 0;
 
       span {
         font-size: 4rem;
@@ -73,7 +79,7 @@ export const StyledAboutUs = styled.div`
 
   @media (min-width: 768px) {
     p {
-      font-size: 1.75rem;
+      font-size: 1.7rem;
     }
 
     .pageOne,
@@ -83,26 +89,30 @@ export const StyledAboutUs = styled.div`
 
     .pageOne {
       h1 {
-        font-size: 4rem;
+        font-size: 3.8rem;
 
         span {
-          font-size: 7rem;
+          font-size: 6.8rem;
         }
       }
     }
   }
 
   @media (min-width: 1024px) {
+    .soulful {
+      top: 0;
+    }
+
     p {
-      font-size: 2rem;
+      font-size: 1.7rem;
     }
 
     .pageOne {
       h1 {
-        font-size: 5rem;
+        font-size: 4.85rem;
 
         span {
-          font-size: 15rem;
+          font-size: 14.85rem;
         }
       }
     }
@@ -113,8 +123,12 @@ export const StyledAboutUs = styled.div`
   }
 
   @media (min-width: 1440px) {
+    .soulful {
+      font-size: 3rem;
+    }
+
     p {
-      font-size: 2.3rem;
+      font-size: 2rem;
     }
   }
 `;

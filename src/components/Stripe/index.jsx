@@ -68,5 +68,5 @@ export default function Stripe({nome,image,link,metadata,word,gratis}) {
     console.warn(error.message);
   }
   
-  return <button style={{backgroundColor:'#D2EAF8',borderRadius:'8%'}} onClick={gratis <= 0 ? handleCheckout : handleFree}>Buy</button>;
+  return <button style={{backgroundColor:'#D2EAF8'}} onClick={gratis <= 0 ? handleCheckout : handleFree}>Buy</button>;
 }

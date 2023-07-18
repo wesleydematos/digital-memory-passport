@@ -48,21 +48,15 @@ function Memorie({nome,image,metadata,word}) {
       return
     } 
 
-    const wallets = await getDocs(collection(db, "wallets"));
-    let findWallet = 0
+    const docSnapWallet = await getDoc(doc(db, "wallets", gmail))
     let addressFound = ""
-    wallets.forEach((wallet) => {
-        if(wallet.id == userGmail){
-            addressFound = wallet.data().address
-            findWallet+=1
-        }
-    });
-    if(findWallet==0){
+    if(docSnapWallet.exists()){
+      addressFound = docSnapWallet.data().address
+    }else{
+      const wallet = ethers.Wallet.createRandom()
+      await db.collection('wallets').doc(gmail).set({address: wallet.address,privateKey: btoa(wallet.privateKey),minted:[]});
 
-        const wallet = ethers.Wallet.createRandom()
-        await db.collection('wallets').doc(gmail).set({address: wallet.address,privateKey: btoa(wallet.privateKey),minted:[]});
-
-        addressFound = wallet.address;
+      addressFound = wallet.address;
     }
 
     const docSnap = await getDoc(doc(db, "master-key", "key"))

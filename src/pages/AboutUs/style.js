@@ -9,7 +9,6 @@ export const StyledAboutUs = styled.div`
     flex-direction: column;
     justify-content: start;
     text-align: justify;
-    min-height: 115vh;
     color: var(--white-l);
     background-color: var(--orange-l);
     padding: 0 10px;
@@ -99,6 +98,11 @@ export const StyledAboutUs = styled.div`
   }
 
   @media (min-width: 1024px) {
+    .pageOne,
+    .pageTwo {
+      min-height: 115vh;
+    }
+
     .soulful {
       top: 0;
     }

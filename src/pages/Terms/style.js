@@ -28,7 +28,6 @@ export const StyledTerms = styled.div`
     flex-direction: column;
     justify-content: start;
     text-align: justify;
-    min-height: 105vh;
     padding: 0 10px;
     gap: 10px;
 
@@ -113,6 +112,12 @@ export const StyledTerms = styled.div`
   }
 
   @media (min-width: 1024px) {
+    .pageOne,
+    .pageTwo,
+    .pageThree {
+      min-height: 105vh;
+    }
+
     .soulful {
       top: 0;
     }

@@ -1,4 +1,4 @@
-import pin from "../../../../assets/pin.png";
+import pin2 from "../../../../assets/pin2.png";
 import { BgYourMemory } from "../../../Backgrounds/style";
 import { StyledNdStep } from "./style";
 
@@ -13,7 +13,7 @@ function NdStep() {
           </h1>
 
           <div className="ndStep">
-            <img src={pin} alt="" />
+            <img src={pin2} alt="" />
             <p>SECOND STEP:</p>
           </div>
 

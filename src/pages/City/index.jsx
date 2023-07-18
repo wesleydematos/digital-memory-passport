@@ -2,16 +2,16 @@ import { SquarePurple } from "../../components/Square/style";
 import { CityContent } from "./style";
 import { useNavigate } from 'react-router-dom';
 import sun from "../../assets/sol.png";
-import cloud from "../../assets/nuvem.png";
+import ondas from "../../assets/ondas.png";
 import Login from "../../components/Login";
 
 function City({nome,pais,descricao,image,metadata,link,gratis}) {
 
-  const navigateTo = useNavigate({replace:true});
+  const navigateTo = useNavigate();
 
   return (
     <CityContent>
-      <p style={{cursor:'pointer'}} onClick={() => navigateTo('/',{ replace: true })}>SOULFUL</p>
+      <p style={{cursor:'pointer'}} onClick={() => navigateTo('/')}>SOULFUL</p>
       <main>
         <div className="content">
           <h1>
@@ -25,7 +25,7 @@ function City({nome,pais,descricao,image,metadata,link,gratis}) {
           <SquarePurple>
             <img src={image}/>
           </SquarePurple>
-          <img src={cloud} alt="nuvem" id="cloud" />
+          <img src={ondas} alt="nuvem" id="cloud" />
         </div>
       </main>
     </CityContent>

@@ -35,8 +35,9 @@ export const StyledRdStep = styled.div`
     align-items: center;
 
     img {
-      height: 100px;
-      width: 150px;
+      z-index: 1;
+      height: 200px;
+      width: 200px;
     }
 
     p {
@@ -87,7 +88,8 @@ export const StyledRdStep = styled.div`
       margin-bottom: 25vh;
 
       img {
-        height: 250px;
+        z-index: 1;
+        height: 300px;
         width: 300px;
       }
 

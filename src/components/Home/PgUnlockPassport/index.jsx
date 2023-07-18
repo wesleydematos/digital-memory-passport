@@ -73,12 +73,12 @@ function PgUnlockPassport() {
             {user == "" ? (
               <GoogleLogin
                 clientId={clientId}
-                buttonText="Login"
                 onSuccess={onSuccess}
                 onFailure={onFailure}
                 cookiePolicy={"single_host_origin"}
-                style={{ marginTop: "100px" }}
-                isSignedIn={true}
+                theme="filled_black"
+                text="continue_with"
+                shape="circle"
               />
             ) : (
               <ProfileDropdown user={user} email={email}></ProfileDropdown>

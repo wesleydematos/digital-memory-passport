@@ -37,6 +37,7 @@ export const StyledUnlockPassport = styled.div`
       display: flex;
       justify-content: space-between;
       color: var(--white-l);
+      margin-bottom: 30px;
 
       a {
         text-decoration: none;

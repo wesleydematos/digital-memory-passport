@@ -15,6 +15,8 @@ function Login({nome,image,link,metadata,gratis}) {
 
   const [user, setUser] = useState("");
 
+  const navigateTo = useNavigate();
+
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user");
     const loggedWallet = localStorage.getItem("wallet");
@@ -67,20 +69,24 @@ function Login({nome,image,link,metadata,gratis}) {
     <div>
       {
         user == ""  ? 
-        <>
-            <GoogleLogin
-            clientId={clientId}
-            buttonText="Login"
-            onSuccess={onSuccess}
-            onFailure={onFailure}
-            cookiePolicy={'single_host_origin'}
-            style={{ marginTop: '100px' }}
-            isSignedIn={true}
-            />
-            <br/>
-            OR
+        <>  
+            <button>
+              <GoogleLogin
+              clientId={clientId}
+              buttonText="Login"
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              cookiePolicy={'single_host_origin'}
+              isSignedIn={true}
+              theme="filled_black"
+              text="continue_with"
+              shape="circle"
+              />
+            </button>
             <br/><br/>
             <button onClick={connectWalletHandler}>CONNECT WALLET</button>
+            <br/><br/>
+            <button style={{backgroundColor:'#d9bb8d',width:'300px'}} onClick={() => navigateTo('/')}>CHECK OUT OUR SITE</button>
         </>
         :
         <div>

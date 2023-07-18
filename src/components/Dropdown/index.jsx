@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Menu, MenuItem, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
-import { getDoc, doc } from "firebase/firestore";
+import { getDoc, doc, updateDoc } from "firebase/firestore";
 import db from '../../database/firebase.config'
 import { BsPersonLinesFill, BsWallet2 } from "react-icons/bs";
 import { MdLogout } from "react-icons/md";
@@ -35,6 +35,16 @@ function ProfileDropdown({user,email}) {
             console.log(docSnap.data().minted)
             setMinted(docSnap.data().minted)
         }
+        // const docSnapGmail = await getDoc(doc(db, "wallets", email))
+
+        // let mintedNft = docSnapGmail.data().minted
+        // mintedNft.push({'image':'https://gateway.pinata.cloud/ipfs/Qmdn4C8nEU313bQKSXxMSburUNjKkGkqo4PaGPnwWJxNKp','nome':'Teste'})
+
+        // const docRef = doc(db, "wallets", email)
+        // const data = {
+        //     minted: mintedNft
+        // };
+        // updateDoc(docRef, data)
         setLoading(false);
     };
 

@@ -51,6 +51,10 @@ export const CityContent = styled.div`
       font-size: 1.3rem;
       font-weight: 900;
     }
+
+    p {
+      font-weight: 700;
+    }
   }
 
   .code {
@@ -58,8 +62,6 @@ export const CityContent = styled.div`
     width: 250px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    overflow: hidden;
 
     #sun,
     #cloud {
@@ -80,25 +82,36 @@ export const CityContent = styled.div`
     }
 
     #cloud {
+      transform: rotate(-25deg);
       z-index: 110;
       align-self: flex-end;
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     .code {
-      height: 340px;
-      width: 340px;
-    }
+      height: 600px;
+      width: 600px;
 
-    #cloud,
-    #sun {
-      height: 210px;
-      width: 210px;
-    }
+      #cloud,
+      #sun {
+        height: 250px;
+        width: 250px;
+      }
 
-    #cloud {
-      margin-left: 220px;
+      .square {
+        height: 350px;
+        width: 350px;
+        margin-left: 125px;
+      }
+
+      #cloud {
+        margin-left: 85px;
+      }
+
+      #sun {
+        margin: 20px 0 0 20px;
+      }
     }
   }
 
@@ -119,18 +132,26 @@ export const CityContent = styled.div`
     }
 
     .code {
-      height: 390px;
-      width: 390px;
-    }
+      height: 500px;
+      width: 500px;
 
-    #cloud,
-    #sun {
-      height: 260px;
-      width: 260px;
-    }
+      #cloud,
+      #sun {
+        height: 200px;
+        width: 200px;
+      }
 
-    #cloud {
-      margin-left: 270px;
+      .square {
+        margin-left: 100px;
+      }
+
+      #sun {
+        margin: 15px 0 0 15px;
+      }
+
+      #cloud {
+        margin-left: 100px;
+      }
     }
 
     .content {
@@ -156,20 +177,22 @@ export const CityContent = styled.div`
     }
   }
 
-  @media (min-width: 2400px) {
+  @media (min-width: 1440px) {
     .code {
-      height: 490px;
-      width: 490px;
-    }
+      height: 750px;
+      width: 720px;
 
-    #cloud,
-    #sun {
-      height: 360px;
-      width: 360px;
-    }
+      .square {
+        height: 430px;
+        width: 430px;
+        margin-left: 155px;
+      }
 
-    #cloud {
-      margin-left: 370px;
+      #cloud,
+      #sun {
+        height: 300px;
+        width: 320px;
+      }
     }
   }
 `;

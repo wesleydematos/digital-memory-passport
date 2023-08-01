@@ -10,14 +10,19 @@ import { ethers } from "ethers";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
+import axios from 'axios';
 
 function Memorie({nome,image,metadata,word}) {
   const initialized = useRef(false)
-  const [userGmail, setUserGmail] = useState("");
   const [isLoading, setIsLoading] = useState(false)
 
   //Mumbai
+  // const contractAddress = "0xCFe583AE4DcEA50f650d056B20B0f0D39929D584";
+  // let rpcProvider = "https://rpc-mumbai.maticvigil.com/";
+
+  //Polygon
   const contractAddress = "0xDBEeC081964A89f76270991E4b47DD65aeE97E32";
+  const rpcProvider = "https://polygon-rpc.com/"
 
   useEffect(() => {
 
@@ -26,8 +31,6 @@ function Memorie({nome,image,metadata,word}) {
       const loggedInUser = localStorage.getItem("user");
       const loggedWallet = localStorage.getItem("wallet");
       if (loggedInUser) {
-        const foundUser = JSON.parse(loggedInUser);
-        setUserGmail(foundUser['email']);
         mintGmail()
       }else if(loggedWallet){
         mintNft()
@@ -63,7 +66,6 @@ function Memorie({nome,image,metadata,word}) {
     let masterKey = ""
     masterKey  = atob(docSnap.data().privateKey);
 
-    let rpcProvider = "https://rpc-mumbai.maticvigil.com/";
     let metadataMint = metadata;
 
     const provider = new ethers.providers.JsonRpcProvider(rpcProvider);
@@ -78,8 +80,6 @@ function Memorie({nome,image,metadata,word}) {
         metadataMint,
         { value: ethers.utils.parseEther("0") }
     );
-
-    await nftTxn.wait();
 
     await db.collection('link-payments').doc(word).set(
       {
@@ -101,6 +101,8 @@ function Memorie({nome,image,metadata,word}) {
     };
     updateDoc(docRef, data)
 
+    await nftTxn.wait();
+    
     setIsLoading(false);
   }
 
@@ -108,9 +110,19 @@ function Memorie({nome,image,metadata,word}) {
 
     setIsLoading(true);
 
-    const docSnap = await getDoc(doc(db, "master-key", "key"))
-    let masterKey = ""
-    masterKey  = atob(docSnap.data().privateKey);
+    const response = await axios.get(
+      'https://api.coingecko.com/api/v3/simple/price',
+      {
+        params: {
+          ids: 'matic-network',
+          vs_currencies: 'eur',
+        },
+      }
+    );
+
+    const maticToEuroRate = response.data['matic-network'].eur;
+
+    let valueMint = ((1/maticToEuroRate)*2).toString()
 
     const docSnapPayments = await getDoc(doc(db, "link-payments", word))
     
@@ -121,12 +133,12 @@ function Memorie({nome,image,metadata,word}) {
 
     try {
 
-        let rpcProvider = "https://rpc-mumbai.maticvigil.com/";
         let metadataMint = metadata;
 
-        const provider = new ethers.providers.JsonRpcProvider(rpcProvider);
+        const { ethereum } = window;
 
-        const signer = new ethers.Wallet(masterKey, provider);
+        let provider = new ethers.providers.Web3Provider(ethereum);  
+        let signer = provider.getSigner();
 
         const nftContractReadonly = new ethers.Contract(contractAddress, contract.abi, provider);
         const nftContract = nftContractReadonly.connect(signer);
@@ -134,10 +146,8 @@ function Memorie({nome,image,metadata,word}) {
         let nftTxn = await nftContract.safeMint(
             localStorage.getItem("wallet"), 
             metadataMint,
-            { value: ethers.utils.parseEther("0") }
+            { value: ethers.utils.parseEther(valueMint) }
         );
-
-        await nftTxn.wait();
 
         await db.collection('link-payments').doc(word).set(
           {
@@ -148,11 +158,12 @@ function Memorie({nome,image,metadata,word}) {
           }
         );
 
+        await nftTxn.wait();
+
         setIsLoading(false);
         
     } catch (err) {
         console.log(err.message)
-        setIsLoading(false);
     }
 
     
@@ -169,9 +180,15 @@ function Memorie({nome,image,metadata,word}) {
     <AlertProvider template={AlertTemplate} {...options}>
       <BgBlueOrange>
         {isLoading ? 
-          <div style={{height:'100vh',display:'flex',justifyContent:'center',alignItems:'center'}}>
-            <CircularProgress/>
-          </div>
+          <MemoryContent>
+            <div style={{height:'100vh',display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',padding:'30px'}}>
+              <h2 style={{'color': 'white'}}>
+                WAIT... WE ARE CREATING YOUR MEMORY.
+              </h2><br></br>
+              <CircularProgress style={{'color': 'white'}}/>
+            </div>
+          </MemoryContent>
+          
             :
           <MemoryContent>
             <h1>
@@ -179,7 +196,6 @@ function Memorie({nome,image,metadata,word}) {
               <span>MADE YOUR MEMORIE</span>
             </h1>
             <div className="spin">
-              {/* <img src={spin} alt="Orange spin" /> */}
               <div>
                 <img src={image}/>
               </div>

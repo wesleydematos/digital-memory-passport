@@ -5,10 +5,10 @@ function Socials() {
   return (
     <>
       <SocialsContainer>
-        <button>
+        <button onClick={() => window.open('https://twitter.com/soulfulab', '_blank')}>
           <BsTwitter />
         </button>
-        <button>
+        <button onClick={() => window.open('https://www.instagram.com/soulfullab/', '_blank')}>
           <BsInstagram />
         </button>
       </SocialsContainer>

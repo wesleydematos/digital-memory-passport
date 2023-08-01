@@ -157,7 +157,6 @@ export const CityContent = styled.div`
     .content {
       padding-left: 5vw;
       align-items: center;
-      gap: 15vh;
 
       h1,
       h1 > span {

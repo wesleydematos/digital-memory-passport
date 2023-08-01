@@ -22,8 +22,8 @@ function SocialsMemorie({link,nome}) {
     <>
       <SocialsContainer>
         <TwitterShareButton
-            title={"test"}
-            url={"https://cafe3ponto0commrjo.xyz/"}
+            title={"Check out my memory of "+nome+" by soulfullab.xyz  🗺:\n"}
+            url={link}
         >
             <BsTwitter color="white"/>
         </TwitterShareButton>

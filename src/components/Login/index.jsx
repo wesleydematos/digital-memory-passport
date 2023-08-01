@@ -5,6 +5,7 @@ import Stripe from "../Stripe";
 import { generate } from "random-words";
 import { useNavigate } from 'react-router-dom';
 import db from "../../database/firebase.config";
+import { ethers } from 'ethers';
 
 const clientId =
   '511396642771-raoickmie1u15a6o61j9ig70oqt9f9ik.apps.googleusercontent.com';
@@ -14,6 +15,7 @@ function Login({nome,image,link,metadata,gratis}) {
   let generateWord = generate()+generate()
 
   const [user, setUser] = useState("");
+  const [connectWithWallet, setConnectWithWallet] = useState(false);
 
   const navigateTo = useNavigate();
 
@@ -32,10 +34,15 @@ function Login({nome,image,link,metadata,gratis}) {
   const connectWalletHandler = async () => {
 
     const { ethereum } = window;
-  
-    if (!ethereum) {
-        alert("Please install Metamask!");
+
+    let provider = new ethers.providers.Web3Provider(ethereum);  
+    const { chainId } = await provider.getNetwork()
+    if(chainId!=137 && chainId!=80001){
+      alert("Select polygon network!")
+      return
     }
+
+    setConnectWithWallet(true)
   
     try {
         const account = await ethereum.request({ method: 'eth_requestAccounts' });
@@ -45,6 +52,19 @@ function Login({nome,image,link,metadata,gratis}) {
     } catch (err) {
       console.log(err)
     }
+}
+
+const paymentWithWallet = async () => {
+
+  await db.collection('link-payments').doc(generateWord).set(
+    {
+      'nome':nome,
+      'metadata':metadata,
+      'image':image,
+      'minted':false
+    }
+  );
+  navigateTo('/memorie/'+generateWord)
 }
 
   const onSuccess = async res => {
@@ -93,7 +113,7 @@ function Login({nome,image,link,metadata,gratis}) {
             <p style={{fontSize:'1.5rem'}}>{"You are logged in as "+user}</p>
             <button onClick={handleLogout}>Logout</button>
             <br/><br/><br/>
-            <Stripe nome={nome} image={image} link={link} metadata={metadata} word={generateWord} gratis={gratis}></Stripe>
+            {connectWithWallet ? <button style={{backgroundColor:'#d9bb8d', width:'50%'}} onClick={() => paymentWithWallet()}>GET IT</button> : <Stripe nome={nome} image={image} link={link} metadata={metadata} word={generateWord} gratis={gratis}></Stripe>}
         </div>
       }
       

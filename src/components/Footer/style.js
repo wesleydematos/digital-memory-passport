@@ -10,8 +10,11 @@ export const StyledFooter = styled.footer`
   min-height: 14vh;
 
   .content {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     align-self: center;
+    align-items: center;
     color: ${color};
     font-weight: 600;
     font-size: 20px;

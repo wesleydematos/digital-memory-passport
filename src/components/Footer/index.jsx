@@ -1,5 +1,5 @@
 import { StyledFooter } from "./style";
-import { BsLinkedin, BsGithub } from "react-icons/bs";
+import { BsLinkedin, BsGithub, BsTwitter, BsInstagram } from "react-icons/bs";
 
 function Footer() {
   return (
@@ -9,7 +9,7 @@ function Footer() {
           <p>© 2023 - Some rights reserved</p>
           <div className="developers">
             <div className="marcelo">
-              <p>Mercelo Filho</p>
+              <p>Marcelo Filho</p>
               <div>
                 <a
                   target="blank"
@@ -35,6 +35,21 @@ function Footer() {
                 </a>
                 <a target="blank" href="https://github.com/wesleydematos">
                   <BsGithub />
+                </a>
+              </div>
+            </div>
+            <div className="divisor" />
+            <div className="marcelo">
+              <p>Soulful</p>
+              <div>
+                <a
+                  target="blank"
+                  href="https://twitter.com/soulfulab/"
+                >
+                  <BsTwitter />
+                </a>
+                <a target="blank" href="https://www.instagram.com/soulfullab/">
+                  <BsInstagram />
                 </a>
               </div>
             </div>

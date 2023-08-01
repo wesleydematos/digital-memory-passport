@@ -32,19 +32,8 @@ function ProfileDropdown({user,email}) {
         setLoading(true);
         const docSnap = await getDoc(doc(db, "wallets", email))
         if(docSnap.exists()){
-            console.log(docSnap.data().minted)
             setMinted(docSnap.data().minted)
         }
-        // const docSnapGmail = await getDoc(doc(db, "wallets", email))
-
-        // let mintedNft = docSnapGmail.data().minted
-        // mintedNft.push({'image':'https://gateway.pinata.cloud/ipfs/Qmdn4C8nEU313bQKSXxMSburUNjKkGkqo4PaGPnwWJxNKp','nome':'Teste'})
-
-        // const docRef = doc(db, "wallets", email)
-        // const data = {
-        //     minted: mintedNft
-        // };
-        // updateDoc(docRef, data)
         setLoading(false);
     };
 

@@ -6,6 +6,7 @@ import { generate } from "random-words";
 import { useNavigate } from 'react-router-dom';
 import db from "../../database/firebase.config";
 import { ethers } from 'ethers';
+import { updateDoc, getDoc, doc } from "firebase/firestore";
 
 const clientId =
   '511396642771-raoickmie1u15a6o61j9ig70oqt9f9ik.apps.googleusercontent.com';
@@ -54,18 +55,33 @@ function Login({nome,image,link,metadata,gratis}) {
     }
 }
 
-const paymentWithWallet = async () => {
+  const paymentWithWallet = async () => {
 
-  await db.collection('link-payments').doc(generateWord).set(
-    {
-      'nome':nome,
-      'metadata':metadata,
-      'image':image,
-      'minted':false
+    localStorage.setItem('gratisWallet', gratis)
+
+    if(gratis>0){
+      const docSnap = await getDoc(doc(db, "mints", link))
+
+      let quantidadeGratis = docSnap.data().gratis
+
+      const docRef = doc(db, "mints", link)
+      const data = {
+          gratis: quantidadeGratis-1
+      };
+      updateDoc(docRef, data)
     }
-  );
-  navigateTo('/memorie/'+generateWord)
-}
+
+
+    await db.collection('link-payments').doc(generateWord).set(
+      {
+        'nome':nome,
+        'metadata':metadata,
+        'image':image,
+        'minted':false
+      }
+    );
+    navigateTo('/memorie/'+generateWord)
+  }
 
   const onSuccess = async res => {
     const token = res.credential;

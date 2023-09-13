@@ -11,10 +11,13 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Memorie({nome,image,metadata,word}) {
   const initialized = useRef(false)
   const [isLoading, setIsLoading] = useState(false)
+
+  const navigateTo = useNavigate();
 
   //Mumbai
   // const contractAddress = "0xCFe583AE4DcEA50f650d056B20B0f0D39929D584";
@@ -122,7 +125,7 @@ function Memorie({nome,image,metadata,word}) {
 
     const maticToEuroRate = response.data['matic-network'].eur;
 
-    let valueMint = ((1/maticToEuroRate)*2).toString()
+    let valueMint = ((1/maticToEuroRate)*1).toString()
 
     const docSnapPayments = await getDoc(doc(db, "link-payments", word))
     
@@ -137,16 +140,45 @@ function Memorie({nome,image,metadata,word}) {
 
         const { ethereum } = window;
 
-        let provider = new ethers.providers.Web3Provider(ethereum);  
-        let signer = provider.getSigner();
+        let gratis = localStorage.getItem("gratisWallet")
 
-        const nftContractReadonly = new ethers.Contract(contractAddress, contract.abi, provider);
-        const nftContract = nftContractReadonly.connect(signer);
+        if(gratis==0){
+          let provider = new ethers.providers.Web3Provider(ethereum);  
+          let signer = provider.getSigner();
+          const gasPrice = await provider.getGasPrice();
+
+          const amountInMatic = ethers.utils.parseUnits(valueMint, 18);
+
+          const tx = {
+            to: "0x8b4b3acA034980794994E05FD7d8f776d5c19577",
+            value: amountInMatic,
+            gasPrice,
+          };
+
+          const gasLimit = await signer.estimateGas(tx);
+          tx.gasLimit = gasLimit;
+
+          const transactionResponse = await signer.sendTransaction(tx);
+
+          await transactionResponse.wait()
+        }
+
+        const docSnap = await getDoc(doc(db, "master-key", "key"))
+
+        let masterKey = ""
+        masterKey  = atob(docSnap.data().privateKey);
+
+        const providerWallet = new ethers.providers.JsonRpcProvider(rpcProvider);
+
+        const signerWallet = new ethers.Wallet(masterKey, providerWallet);
+
+        const nftContractReadonly = new ethers.Contract(contractAddress, contract.abi, providerWallet);
+        const nftContract = nftContractReadonly.connect(signerWallet);
 
         let nftTxn = await nftContract.safeMint(
             localStorage.getItem("wallet"), 
             metadataMint,
-            { value: ethers.utils.parseEther(valueMint) }
+            { value: ethers.utils.parseEther("0") }
         );
 
         await db.collection('link-payments').doc(word).set(
@@ -163,10 +195,10 @@ function Memorie({nome,image,metadata,word}) {
         setIsLoading(false);
         
     } catch (err) {
-        console.log(err.message)
+      console.log(err.message)
+      alert("An error occurred, please try again.")
+      navigateTo('/')
     }
-
-    
   }
 
   const options = {

@@ -11,7 +11,7 @@ export default function Stripe({nome,image,link,metadata,word,gratis}) {
   // const token = "pk_test_51NROo0LdcTxsuZ9XlEPB7S1um4K6OKhwUKyFYvVH64i5TxOSGs72Csnxi6uKdtKnaOx99G2mCVKZTvohfBvqEpma00Vu9hRcFz"
 
   // Producao
-  const priceProduct = "price_1NVJ26LvW21zB0YRcvVdaEvx"
+  const priceProduct = "price_1NcBh0LvW21zB0YR56xRp1z5"
   const token = "pk_live_51NTVLfLvW21zB0YRKnZ8k1JOXxjcAeNMoP5gctWFCGLPbicMhK5NNP5xu7wWPAUou1vATe5tQnbC7vG2rMRWGOm000t1z7S7J2"
 
   const navigateTo = useNavigate();

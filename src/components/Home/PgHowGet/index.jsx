@@ -12,7 +12,7 @@ function PgHowGet() {
       <BgHowGet>
         <div className="howGetTriangle" />
         <StyledHowGet>
-          <div className="session">
+          <section>
             <h1>
               HOW TO GET <span>YOUR&#39;S?</span>
             </h1>
@@ -24,7 +24,7 @@ function PgHowGet() {
               smartphone, and instantly transport yourself to the time and place
               where those memories were created.
             </p>
-          </div>
+          </section>
           <aside className="codes">
             <SquarePurple className="square1">
               <img src={img1} alt="imagem" />

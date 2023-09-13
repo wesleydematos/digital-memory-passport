@@ -92,7 +92,7 @@ export const StyledUnlockPassport = styled.div`
     .session {
       h1 {
         margin-top: 5vh;
-        font-size: 8rem;
+        font-size: 5rem;
       }
     }
   }
@@ -101,7 +101,6 @@ export const StyledUnlockPassport = styled.div`
     .session {
       h1 {
         margin-top: 7vh;
-        font-size: 8rem;
       }
     }
   }

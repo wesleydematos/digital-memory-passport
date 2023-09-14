@@ -16,6 +16,10 @@ import img5 from "../../assets/img5.jpg";
 import img6 from "../../assets/img6.jpg";
 import img7 from "../../assets/img7.jpg";
 import img8 from "../../assets/img8.jpg";
+import img9 from "../../assets/img9.jpg";
+import img10 from "../../assets/img10.jpg";
+import img11 from "../../assets/img11.jpg";
+import img12 from "../../assets/img12.jpg";
 
 const clientId =
   "511396642771-raoickmie1u15a6o61j9ig70oqt9f9ik.apps.googleusercontent.com";
@@ -158,6 +162,38 @@ function Teste() {
             </div>
             <div className="square square8">
               <img src={img8} alt="imagem" />
+            </div>
+          </section>
+        </div>
+      </div>
+      <div className="bg-joinus">
+        <div className="joinus-triangle triangle" />
+        <div className="content-joinus">
+          <section className="section-text">
+            <p>
+              Embrace the advantages of owning a Digital Memory Passport and
+              unlock a world of exclusive experiences, discounts, and
+              connections. Join the community and let your passport become a
+              gateway to unforgettable adventures and meaningful interactions.
+            </p>
+            <h1>
+              JOIN <br />
+              <span>US</span>
+            </h1>
+            <Socials />
+          </section>
+          <section className="section-images">
+            <div className="square square9">
+              <img src={img9} alt="imagem" />
+            </div>
+            <div className="square square10">
+              <img src={img10} alt="imagem" />
+            </div>
+            <div className="square square11">
+              <img src={img11} alt="imagem" />
+            </div>
+            <div className="square square12">
+              <img src={img12} alt="imagem" />
             </div>
           </section>
         </div>

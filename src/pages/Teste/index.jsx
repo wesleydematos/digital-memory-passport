@@ -1,0 +1,169 @@
+import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
+
+import { StyledHome } from "./style";
+import Socials from "../../components/Socials";
+import ProfileDropdown from "../../components/Dropdown";
+
+import pageDown from "../../assets/pagedown.gif";
+import img1 from "../../assets/img1.jpg";
+import img2 from "../../assets/img2.jpg";
+import img3 from "../../assets/img3.jpg";
+import img4 from "../../assets/img4.jpg";
+import img5 from "../../assets/img5.jpg";
+import img6 from "../../assets/img6.jpg";
+import img7 from "../../assets/img7.jpg";
+import img8 from "../../assets/img8.jpg";
+
+const clientId =
+  "511396642771-raoickmie1u15a6o61j9ig70oqt9f9ik.apps.googleusercontent.com";
+
+function Teste() {
+  const navigateTo = useNavigate({ replace: true });
+  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser["name"]);
+      setEmail(foundUser["email"]);
+    }
+  }, []);
+
+  function scrollDown() {
+    window.scrollBy({
+      top: window.innerHeight,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
+
+  const onSuccess = async (res) => {
+    const token = res.credential;
+    const decoded = jwt_decode(token);
+    setUser(decoded["name"]);
+    setEmail(decoded["email"]);
+    localStorage.setItem("user", JSON.stringify(decoded));
+  };
+
+  const onFailure = () => {
+    alert(
+      `Failed to login. 😢 Please ping this to repo owner twitter.com/sivanesh_fiz`
+    );
+  };
+
+  return (
+    <StyledHome>
+      <div className="bg-unlock">
+        <div className="unlock-triangle triangle" />
+        <div className="content-unlock">
+          <header>
+            <div className="socials">
+              <Socials />
+              <p>JOIN US</p>
+            </div>
+            <div className="soulful">
+              <p
+                style={{ cursor: "pointer" }}
+                onClick={() => navigateTo("/", { replace: true })}
+              >
+                SOULFUL
+              </p>
+
+              <div>
+                <Link to="/about-us">ABOUT US</Link>
+                <Link to="/terms">TERMS OF USE</Link>
+              </div>
+            </div>
+            {user == "" ? (
+              <GoogleLogin
+                clientId={clientId}
+                onSuccess={onSuccess}
+                onFailure={onFailure}
+                cookiePolicy={"single_host_origin"}
+                theme="filled_black"
+                text="continue_with"
+                shape="circle"
+              />
+            ) : (
+              <ProfileDropdown user={user} email={email}></ProfileDropdown>
+            )}
+          </header>
+          <div className="dropdown-unlock">
+            <h1>UNLOCK YOUR PASSPORT OF DIGITAL MEMORIES</h1>
+            <img src={pageDown} alt="Page Down Gif" onClick={scrollDown} />
+          </div>
+        </div>
+      </div>
+      <div className="bg-howget">
+        <div className="howget-triangle triangle" />
+        <div className="content-howget">
+          <section className="section-text">
+            <h1>
+              HOW TO GET <span>YOUR&#39;S?</span>
+            </h1>
+            <p>
+              To obtain your Digital Memory Passport, simply navigate through
+              our partnered cities and keep an eye out for special QR codes
+              scattered throughout. These QR codes serve as gateways to a world
+              of memories waiting to be unlocked. Scan the QR codes using your
+              smartphone, and instantly transport yourself to the time and place
+              where those memories were created.
+            </p>
+          </section>
+          <section className="section-images">
+            <div className="square square1">
+              <img src={img1} alt="imagem" />
+            </div>
+            <div className="square square2">
+              <img src={img2} alt="imagem" />
+            </div>
+            <div className="square square3">
+              <img src={img3} alt="imagem" />
+            </div>
+            <div className="square square4">
+              <img src={img4} alt="imagem" />
+            </div>
+          </section>
+        </div>
+      </div>
+      <div className="bg-yourmemory">
+        <div className="memory-triangle triangle" />
+        <div className="content-yourmemory">
+          <section className="section-text">
+            <p>
+              Embark on a captivating journey of nostalgia and exploration by
+              acquiring your very own Digital Memory Passport. This innovative
+              concept allows you to capture and cherish your most cherished
+              moments in a unique and digital format.
+            </p>
+            <h1>
+              MINT <br />
+              <span>YOUR MEMORIE</span>
+            </h1>
+          </section>
+          <section className="section-images">
+            <div className="square square5">
+              <img src={img5} alt="imagem" />
+            </div>
+            <div className="square square6">
+              <img src={img6} alt="imagem" />
+            </div>
+            <div className="square square7">
+              <img src={img7} alt="imagem" />
+            </div>
+            <div className="square square8">
+              <img src={img8} alt="imagem" />
+            </div>
+          </section>
+        </div>
+      </div>
+    </StyledHome>
+  );
+}
+
+export default Teste;

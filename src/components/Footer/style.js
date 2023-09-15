@@ -7,18 +7,15 @@ export const StyledFooter = styled.footer`
   flex-direction: column;
   overflow: hidden;
   background-color: ${(props) => props.primaryColor || "var(--orange-l)"};
-  min-height: 14vh;
 
   .content {
     display: flex;
     flex-direction: column;
-    position: absolute;
     align-self: center;
     align-items: center;
-    color: ${color};
     font-weight: 600;
-    font-size: 20px;
-    top: ${(props) => props.contentTopValue || "700vh"};
+    font-size: 15px;
+    color: ${color};
 
     > p {
       margin: 5px 0;
@@ -27,13 +24,11 @@ export const StyledFooter = styled.footer`
 
   .developers {
     display: flex;
-    height: 8vh;
     gap: 10px;
 
     .divisor {
       margin-top: 0.5vh;
       width: 5px;
-      height: 5vh;
       border-left: ${`1px solid ${color}`};
     }
   }
@@ -55,6 +50,8 @@ export const StyledFooter = styled.footer`
   }
 
   @media (min-width: 768px) {
-    height: 12vh;
+    .content {
+      font-size: 20px;
+    }
   }
 `;

@@ -4,14 +4,15 @@ export const StyledHowGet = styled.div`
   display: flex;
   flex-direction: column;
   font-family: "Open Sans", sans-serif;
-  justify-content: space-around;
-  min-height: 100vh;
+  overflow: hidden;
 
-  section {
+  .session {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+    height: 50vh;
     padding: 0 20px;
 
     h1 {
@@ -20,7 +21,6 @@ export const StyledHowGet = styled.div`
       font-size: 2rem;
       line-height: 0.75;
       font-weight: 900;
-      margin: 5vh 0;
 
       span {
         color: var(--blue-l);
@@ -30,46 +30,32 @@ export const StyledHowGet = styled.div`
     p {
       color: var(--white-l);
       text-align: justify;
-      font-size: 1.2rem;
     }
   }
 
   .codes {
     display: flex;
     flex-direction: row;
-    overflow: scroll;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
     gap: 2px;
-    padding: 0 5px;
-    margin-top: 20px;
-    min-height: 30vh;
 
     div {
       margin: 0 2.5vw;
-      height: 200px;
-      min-width: 200px;
     }
   }
 
   @media (min-width: 768px) {
-    section {
+    .session {
       h1 {
-        font-size: 5rem;
-        /* margin-bottom: 5vh; */
+        font-size: 6rem;
+        margin-bottom: 5vh;
       }
 
       p {
-        font-size: 2rem;
-      }
-    }
-    .codes {
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      overflow: hidden;
-
-      div {
-        min-width: 320px;
+        font-size: 1.5rem;
       }
     }
   }
@@ -77,13 +63,15 @@ export const StyledHowGet = styled.div`
   @media (min-width: 1800px) {
     flex-direction: row;
 
-    section,
+    .session,
     .codes {
       height: 100vh;
       width: 50vw;
     }
 
-    section {
+    .session {
+      gap: 0;
+      height: auto;
       padding: 0;
 
       h1 {
@@ -92,7 +80,7 @@ export const StyledHowGet = styled.div`
       }
 
       p {
-        width: 85%;
+        width: 50%;
       }
     }
 

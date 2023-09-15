@@ -7,7 +7,6 @@ import Memorie from "./pages/Memorie";
 import City from "./pages/City";
 import Terms from "./pages/Terms";
 import AboutUs from "./pages/AboutUs";
-import Teste from "./pages/Teste";
 
 const RoutesMain = () => {
   const [routes, setRoutes] = useState();
@@ -57,7 +56,7 @@ const RoutesMain = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Teste />} />
+        <Route path="/" element={<Home />} />
         {routesPayments?.map((data) => (
           <Route
             key={data.link}

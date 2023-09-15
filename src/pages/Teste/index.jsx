@@ -8,6 +8,7 @@ import Socials from "../../components/Socials";
 import ProfileDropdown from "../../components/Dropdown";
 
 import pageDown from "../../assets/pagedown.gif";
+import pin from "../../assets/pin.png";
 import img1 from "../../assets/img1.jpg";
 import img2 from "../../assets/img2.jpg";
 import img3 from "../../assets/img3.jpg";
@@ -198,6 +199,35 @@ function Teste() {
           </section>
         </div>
       </div>
+      <div className="bg-ststep">
+        <div className="ststep-triangle triangle" />
+        <div className="content-ststep">
+          <h1>
+            ROAD <br />
+            <span>MAP</span>
+          </h1>
+
+          <div>
+            <div className="stStep">
+              <img src={pin} alt="pin" />
+              <p>FIRST STEP:</p>
+            </div>
+
+            <p>
+              Uncover your adventures: a Dashboard that captures your digital
+              memories - locations and dates.
+            </p>
+          </div>
+        </div>
+      </div>
+      {/* <div className="bg-ndstep">
+        <div className="ndstep-triangle triangle" />
+        <div className="content-ndstep"></div>
+      </div>
+      <div className="bg-rdstep">
+        <div className="ndstep-triangle triangle" />
+        <div className="content-rdstep"></div>
+      </div> */}
     </StyledHome>
   );
 }

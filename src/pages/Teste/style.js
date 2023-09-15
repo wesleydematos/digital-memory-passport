@@ -252,6 +252,7 @@ export const StyledHome = styled.main`
         }
 
         p {
+          font-size: 2.5rem;
           width: 75%;
         }
       }
@@ -384,6 +385,7 @@ export const StyledHome = styled.main`
         }
 
         p {
+          font-size: 2.5rem;
           width: 75%;
         }
       }
@@ -518,6 +520,7 @@ export const StyledHome = styled.main`
         }
 
         p {
+          font-size: 2.5rem;
           width: 75%;
         }
       }
@@ -547,6 +550,147 @@ export const StyledHome = styled.main`
           margin-top: 4vh;
           margin-left: 4vw;
         }
+      }
+    }
+  }
+
+  //StStep
+  .bg-ststep {
+    background-color: var(--blue-l);
+    min-height: 100vh;
+
+    .ststep-triangle {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 75%;
+      height: 20%;
+      background-color: var(--orange-l);
+      clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+      top: calc(400vh + 80%);
+    }
+
+    @media (min-width: 1800px) {
+      height: 100vh;
+      .ststep-triangle {
+        display: block;
+      }
+    }
+  }
+
+  .content-ststep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: 100%;
+    padding-top: 30px;
+
+    h1 {
+      text-align: center;
+      color: var(--white-l);
+      font-size: 5rem;
+      line-height: 0.55;
+      font-weight: 900;
+
+      span {
+        color: var(--orange-l);
+        font-size: 5.5rem;
+      }
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stStep {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        z-index: 1;
+        height: 200px;
+        width: 200px;
+      }
+
+      p {
+        color: var(--orange-l);
+        font-size: 1.5rem;
+        font-weight: 900;
+      }
+    }
+
+    div > p {
+      width: 90%;
+      margin-top: 3vh;
+      text-align: center;
+      align-self: center;
+      color: var(--white-l);
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 6rem;
+      }
+
+      .stStep > img {
+        height: 250px;
+        width: 250px;
+      }
+
+      p {
+        font-size: 2rem;
+      }
+    }
+
+    @media (min-width: 1800px) {
+      justify-content: center;
+
+      > div {
+        flex-direction: row;
+      }
+
+      .stStep,
+      > div > p {
+        width: 50vw;
+      }
+
+      .stStep {
+        align-items: center;
+        justify-content: center;
+        img {
+          z-index: 1;
+          height: 400px;
+          width: 450px;
+        }
+
+        p {
+          margin: 0;
+          font-size: 5rem;
+        }
+      }
+
+      h1 {
+        position: absolute;
+        top: 425vh;
+        right: 17vw;
+        font-size: 12rem;
+        line-height: 0.4;
+
+        span {
+          font-size: 10rem;
+        }
+      }
+
+      > div > p {
+        align-self: center;
+        padding-right: 30px;
+        font-size: 2.5rem;
+        font-weight: 500;
       }
     }
   }

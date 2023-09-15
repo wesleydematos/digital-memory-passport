@@ -18,6 +18,49 @@ export const StyledHome = styled.main`
     font-size: 1.2rem;
   }
 
+  .bg {
+    min-height: 100vh;
+  }
+
+  .bg-blue {
+    background-color: var(--blue-l);
+  }
+
+  .bg-orange {
+    background-color: var(--orange-l);
+  }
+
+  .triangle {
+    display: none;
+    position: absolute;
+  }
+
+  .unlock-triangle,
+  .memory-triangle,
+  .ststep-triangle,
+  .ndstep-triangle,
+  .rdstep-triangle {
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+  }
+
+  .unlock-triangle,
+  .ststep-triangl,
+  .rdstep-triangle,
+  .memory-triangle,
+  .ndstep-triangle {
+    width: 75%;
+    height: 20%;
+  }
+
+  .howget-triangle,
+  .joinus-triangle {
+    top: 0;
+    right: 0;
+    width: 25%;
+    height: 5%;
+    clip-path: polygon(100% 100%, 100% 0%, 0% 0%);
+  }
+
   @media (min-width: 768px) {
     .square {
       height: 250px;
@@ -38,6 +81,14 @@ export const StyledHome = styled.main`
     .text {
       font-size: 2.5rem;
     }
+
+    .triangle {
+      display: block;
+    }
+
+    .bg {
+      height: 100vh;
+    }
   }
 
   @media (min-width: 2400px) {
@@ -48,29 +99,6 @@ export const StyledHome = styled.main`
   }
 
   //UnlockPassport
-  .bg-unlock {
-    background-color: var(--blue-l);
-    min-height: 100vh;
-
-    .unlock-triangle {
-      display: none;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 75%;
-      height: 20%;
-      background-color: var(--orange-l);
-      clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
-    }
-
-    @media (min-width: 1800px) {
-      height: 100vh;
-      .unlock-triangle {
-        display: block;
-      }
-    }
-  }
-
   .content-unlock {
     display: flex;
     flex-direction: column;
@@ -168,29 +196,8 @@ export const StyledHome = styled.main`
   }
 
   //HowGet
-  .bg-howget {
-    background-color: var(--orange-l);
-    min-height: 100vh;
-
-    .howget-triangle {
-      display: none;
-      margin-top: 100vh;
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 25%;
-      height: 5%;
-      background-color: var(--blue-l);
-      clip-path: polygon(100% 100%, 100% 0%, 0% 0%);
-    }
-
-    @media (min-width: 1800px) {
-      height: 100vh;
-
-      .howget-triangle {
-        display: block;
-      }
-    }
+  .howget-triangle {
+    margin-top: 100vh;
   }
 
   .content-howget {
@@ -303,26 +310,8 @@ export const StyledHome = styled.main`
   }
 
   //YourMemory
-  .bg-yourmemory {
-    background-color: var(--orange-l);
-    min-height: 100vh;
-
-    .memory-triangle {
-      display: none;
-      position: absolute;
-      top: calc(200vh + 80%);
-      width: 75%;
-      height: 20%;
-      background-color: var(--blue-l);
-      clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
-    }
-
-    @media (min-width: 1800px) {
-      height: 100vh;
-      .memory-triangle {
-        display: block;
-      }
-    }
+  .memory-triangle {
+    top: calc(200vh + 80%);
   }
 
   .content-yourmemory {
@@ -434,28 +423,8 @@ export const StyledHome = styled.main`
   }
 
   //JoinUs
-  .bg-joinus {
-    background-color: var(--blue-l);
-    min-height: 100vh;
-
-    .joinus-triangle {
-      display: none;
-      margin-top: 300vh;
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 25%;
-      height: 5%;
-      background-color: var(--orange-l);
-      clip-path: polygon(100% 100%, 100% 0%, 0% 0%);
-    }
-
-    @media (min-width: 1800px) {
-      height: 100vh;
-      .joinus-triangle {
-        display: block;
-      }
-    }
+  .joinus-triangle {
+    margin-top: 300vh;
   }
 
   .content-joinus {
@@ -567,28 +536,8 @@ export const StyledHome = styled.main`
   }
 
   //StStep
-  .bg-ststep {
-    background-color: var(--blue-l);
-    min-height: 100vh;
-
-    .ststep-triangle {
-      display: none;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 75%;
-      height: 20%;
-      background-color: var(--orange-l);
-      clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
-      top: calc(400vh + 80%);
-    }
-
-    @media (min-width: 1800px) {
-      height: 100vh;
-      .ststep-triangle {
-        display: block;
-      }
-    }
+  .ststep-triangle {
+    top: calc(400vh + 80%);
   }
 
   .content-ststep {
@@ -707,26 +656,8 @@ export const StyledHome = styled.main`
   }
 
   //ndStep
-  .bg-ndstep {
-    background-color: var(--orange-l);
-    min-height: 100vh;
-
-    .ndstep-triangle {
-      display: none;
-      position: absolute;
-      top: calc(500vh + 80%);
-      width: 75%;
-      height: 20%;
-      background-color: var(--blue-l);
-      clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
-    }
-
-    @media (min-width: 1800px) {
-      height: 100vh;
-      .ndstep-triangle {
-        display: block;
-      }
-    }
+  .ndstep-triangle {
+    top: calc(500vh + 80%);
   }
 
   .content-ndstep {
@@ -845,28 +776,8 @@ export const StyledHome = styled.main`
   }
 
   //rdStep
-  .bg-rdstep {
-    background-color: var(--blue-l);
-    min-height: 100vh;
-
-    .rdstep-triangle {
-      display: none;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 75%;
-      height: 20%;
-      background-color: var(--orange-l);
-      clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
-      top: calc(600vh + 80%);
-    }
-
-    @media (min-width: 1800px) {
-      height: 100vh;
-      .rdstep-triangle {
-        display: block;
-      }
-    }
+  .rdstep-triangle {
+    top: calc(600vh + 80%);
   }
 
   .content-rdstep {

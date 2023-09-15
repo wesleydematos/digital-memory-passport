@@ -65,8 +65,8 @@ function Home() {
 
   return (
     <StyledHome>
-      <div className="bg-unlock">
-        <div className="unlock-triangle triangle" />
+      <div className="bg bg-blue">
+        <div className="unlock-triangle triangle bg-orange" />
         <div className="content-unlock">
           <header>
             <div className="socials">
@@ -106,8 +106,8 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="bg-howget">
-        <div className="howget-triangle triangle" />
+      <div className="bg bg-orange">
+        <div className="howget-triangle triangle bg-blue" />
         <div className="content-howget">
           <section className="section-text">
             <h1>
@@ -138,8 +138,8 @@ function Home() {
           </section>
         </div>
       </div>
-      <div className="bg-yourmemory">
-        <div className="memory-triangle triangle" />
+      <div className="bg bg-orange">
+        <div className="memory-triangle triangle bg-blue" />
         <div className="content-yourmemory">
           <section className="section-text">
             <p className="text">
@@ -169,8 +169,8 @@ function Home() {
           </section>
         </div>
       </div>
-      <div className="bg-joinus">
-        <div className="joinus-triangle triangle" />
+      <div className="bg bg-blue">
+        <div className="joinus-triangle triangle bg-orange" />
         <div className="content-joinus">
           <section className="section-text">
             <p className="text">
@@ -201,8 +201,8 @@ function Home() {
           </section>
         </div>
       </div>
-      <div className="bg-ststep">
-        <div className="ststep-triangle triangle" />
+      <div className="bg bg-blue">
+        <div className="ststep-triangle triangle bg-orange" />
         <div className="content-ststep">
           <h1>
             ROAD <br />
@@ -222,8 +222,8 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="bg-ndstep">
-        <div className="ndstep-triangle triangle" />
+      <div className="bg bg-orange">
+        <div className="ndstep-triangle triangle bg-orange" />
         <div className="content-ndstep">
           <h1>
             ROAD <br />
@@ -243,8 +243,8 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="bg-rdstep">
-        <div className="rdstep-triangle triangle" />
+      <div className="bg bg-blue">
+        <div className="rdstep-triangle triangle bg-blue" />
         <div className="content-rdstep">
           <h1>
             ROAD <br />

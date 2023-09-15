@@ -9,6 +9,7 @@ import ProfileDropdown from "../../components/Dropdown";
 
 import pageDown from "../../assets/pagedown.gif";
 import pin from "../../assets/pin.png";
+import pin2 from "../../assets/pin2.png";
 import img1 from "../../assets/img1.jpg";
 import img2 from "../../assets/img2.jpg";
 import img3 from "../../assets/img3.jpg";
@@ -220,11 +221,28 @@ function Teste() {
           </div>
         </div>
       </div>
-      {/* <div className="bg-ndstep">
+      <div className="bg-ndstep">
         <div className="ndstep-triangle triangle" />
-        <div className="content-ndstep"></div>
+        <div className="content-ndstep">
+          <h1>
+            ROAD <br />
+            <span>MAP</span>
+          </h1>
+
+          <div>
+            <div className="ndStep">
+              <img src={pin2} alt="pin" />
+              <p>SECOND STEP:</p>
+            </div>
+
+            <p>
+              Unite with fellow memory holders and partners to create a
+              community where you can share tips and experiences.
+            </p>
+          </div>
+        </div>
       </div>
-      <div className="bg-rdstep">
+      {/* <div className="bg-rdstep">
         <div className="ndstep-triangle triangle" />
         <div className="content-rdstep"></div>
       </div> */}

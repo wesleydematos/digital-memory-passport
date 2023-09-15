@@ -694,4 +694,143 @@ export const StyledHome = styled.main`
       }
     }
   }
+
+  //ndStep
+  .bg-ndstep {
+    background-color: var(--orange-l);
+    min-height: 100vh;
+
+    .ndstep-triangle {
+      display: none;
+      position: absolute;
+      top: calc(500vh + 80%);
+      width: 75%;
+      height: 20%;
+      background-color: var(--blue-l);
+      clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+    }
+
+    @media (min-width: 1024px) {
+      height: 100vh;
+      .ndstep-triangle {
+        display: block;
+      }
+    }
+  }
+
+  .content-ndstep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: 100%;
+    padding-top: 30px;
+
+    h1 {
+      text-align: center;
+      color: var(--white-l);
+      font-size: 5rem;
+      line-height: 0.55;
+      font-weight: 900;
+
+      span {
+        color: var(--blue-l);
+        font-size: 5.5rem;
+      }
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ndStep {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        z-index: 1;
+        height: 200px;
+        width: 200px;
+      }
+
+      p {
+        color: var(--blue-l);
+        font-size: 1.5rem;
+        font-weight: 900;
+      }
+    }
+
+    div > p {
+      width: 90%;
+      margin-top: 3vh;
+      text-align: center;
+      align-self: center;
+      color: var(--white-l);
+      font-size: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 6rem;
+      }
+
+      .ndStep > img {
+        height: 250px;
+        width: 250px;
+      }
+
+      p {
+        font-size: 2rem;
+      }
+    }
+
+    @media (min-width: 1800px) {
+      justify-content: center;
+
+      > div {
+        flex-direction: row;
+      }
+
+      .ndStep,
+      > div > p {
+        width: 50vw;
+      }
+
+      .ndStep {
+        align-items: center;
+        justify-content: center;
+        img {
+          z-index: 1;
+          height: 400px;
+          width: 450px;
+        }
+
+        p {
+          margin: 0;
+          font-size: 5rem;
+        }
+      }
+
+      h1 {
+        position: absolute;
+        top: 525vh;
+        right: 17vw;
+        font-size: 12rem;
+        line-height: 0.4;
+
+        span {
+          font-size: 10rem;
+        }
+      }
+
+      > div > p {
+        align-self: center;
+        padding-right: 30px;
+        font-size: 2.5rem;
+        font-weight: 500;
+      }
+    }
+  }
 `;

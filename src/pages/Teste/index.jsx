@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
+import { BsLinkedin, BsGithub, BsTwitter, BsInstagram } from "react-icons/bs";
 
 import { StyledHome } from "./style";
 import Socials from "../../components/Socials";
 import ProfileDropdown from "../../components/Dropdown";
-import Footer from "../../components/Footer";
 
 import pageDown from "../../assets/pagedown.gif";
 import pin from "../../assets/pin.png";
@@ -113,7 +113,7 @@ function Teste() {
             <h1>
               HOW TO GET <span>YOUR&#39;S?</span>
             </h1>
-            <p>
+            <p className="text">
               To obtain your Digital Memory Passport, simply navigate through
               our partnered cities and keep an eye out for special QR codes
               scattered throughout. These QR codes serve as gateways to a world
@@ -142,7 +142,7 @@ function Teste() {
         <div className="memory-triangle triangle" />
         <div className="content-yourmemory">
           <section className="section-text">
-            <p>
+            <p className="text">
               Embark on a captivating journey of nostalgia and exploration by
               acquiring your very own Digital Memory Passport. This innovative
               concept allows you to capture and cherish your most cherished
@@ -173,7 +173,7 @@ function Teste() {
         <div className="joinus-triangle triangle" />
         <div className="content-joinus">
           <section className="section-text">
-            <p>
+            <p className="text">
               Embrace the advantages of owning a Digital Memory Passport and
               unlock a world of exclusive experiences, discounts, and
               connections. Join the community and let your passport become a
@@ -215,7 +215,7 @@ function Teste() {
               <p>FIRST STEP:</p>
             </div>
 
-            <p>
+            <p className="text">
               Uncover your adventures: a Dashboard that captures your digital
               memories - locations and dates.
             </p>
@@ -236,7 +236,7 @@ function Teste() {
               <p>SECOND STEP:</p>
             </div>
 
-            <p>
+            <p className="text">
               Unite with fellow memory holders and partners to create a
               community where you can share tips and experiences.
             </p>
@@ -257,14 +257,62 @@ function Teste() {
               <p>THIRD STEP:</p>
             </div>
 
-            <p>
+            <p className="text">
               Empower memory holders and partners to create their own digital
               passports and unlock the profits from your personal adventures.
             </p>
           </div>
         </div>
       </div>
-      <Footer />
+      <footer>
+        <div className="content">
+          <p>© 2023 - Some rights reserved</p>
+          <div className="developers">
+            <div className="marcelo">
+              <p>Marcelo Filho</p>
+              <div>
+                <a
+                  target="blank"
+                  href="https://www.linkedin.com/in/marcelofilho6/"
+                >
+                  <BsLinkedin />
+                </a>
+                <a target="blank" href="https://github.com/M4RCELO">
+                  <BsGithub />
+                </a>
+              </div>
+            </div>
+            <div className="divisor" />
+            <div className="wesley">
+              <p>Wesley Matos</p>
+
+              <div>
+                <a
+                  target="blank"
+                  href="https://www.linkedin.com/in/wesley-matos/"
+                >
+                  <BsLinkedin />
+                </a>
+                <a target="blank" href="https://github.com/wesleydematos">
+                  <BsGithub />
+                </a>
+              </div>
+            </div>
+            <div className="divisor" />
+            <div className="marcelo">
+              <p>Soulful</p>
+              <div>
+                <a target="blank" href="https://twitter.com/soulfulab/">
+                  <BsTwitter />
+                </a>
+                <a target="blank" href="https://www.instagram.com/soulfullab/">
+                  <BsInstagram />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </StyledHome>
   );
 }

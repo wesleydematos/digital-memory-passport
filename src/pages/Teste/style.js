@@ -29,6 +29,18 @@ export const StyledHome = styled.main`
     }
   }
 
+  .text {
+    font-size: 1.2rem;
+
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
+
+    @media (min-width: 1800px) {
+      font-size: 2.5rem;
+    }
+  }
+
   //UnlockPassport
   .bg-unlock {
     background-color: var(--blue-l);
@@ -226,7 +238,6 @@ export const StyledHome = styled.main`
         }
 
         p {
-          font-size: 1.6rem;
           padding: 0 20px;
         }
       }
@@ -252,7 +263,6 @@ export const StyledHome = styled.main`
         }
 
         p {
-          font-size: 2.5rem;
           width: 75%;
         }
       }
@@ -360,7 +370,6 @@ export const StyledHome = styled.main`
         }
 
         p {
-          font-size: 1.6rem;
           padding: 0 20px;
         }
       }
@@ -385,7 +394,6 @@ export const StyledHome = styled.main`
         }
 
         p {
-          font-size: 2.5rem;
           width: 75%;
         }
       }
@@ -473,7 +481,6 @@ export const StyledHome = styled.main`
       }
 
       p {
-        font-size: 1.5rem;
         color: var(--white-l);
         text-align: justify;
       }
@@ -520,7 +527,6 @@ export const StyledHome = styled.main`
         }
 
         p {
-          font-size: 2.5rem;
           width: 75%;
         }
       }
@@ -630,7 +636,6 @@ export const StyledHome = styled.main`
       text-align: justify;
       align-self: center;
       color: var(--white-l);
-      font-size: 1.5rem;
     }
 
     @media (min-width: 768px) {
@@ -690,7 +695,6 @@ export const StyledHome = styled.main`
       > div > p {
         align-self: center;
         padding-right: 30px;
-        font-size: 2.5rem;
         font-weight: 500;
       }
     }
@@ -711,7 +715,7 @@ export const StyledHome = styled.main`
       clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1800px) {
       height: 100vh;
       .ndstep-triangle {
         display: block;
@@ -770,7 +774,6 @@ export const StyledHome = styled.main`
       text-align: justify;
       align-self: center;
       color: var(--white-l);
-      font-size: 1.5rem;
     }
 
     @media (min-width: 768px) {
@@ -830,7 +833,6 @@ export const StyledHome = styled.main`
       > div > p {
         align-self: center;
         padding-right: 30px;
-        font-size: 2.5rem;
         font-weight: 500;
       }
     }
@@ -912,7 +914,6 @@ export const StyledHome = styled.main`
       text-align: justify;
       align-self: center;
       color: var(--white-l);
-      font-size: 1.5rem;
     }
 
     @media (min-width: 768px) {
@@ -972,8 +973,61 @@ export const StyledHome = styled.main`
       > div > p {
         align-self: center;
         padding-right: 30px;
-        font-size: 2.5rem;
         font-weight: 500;
+      }
+    }
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--orange-l);
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      align-items: center;
+      color: var(--white-l);
+      font-weight: 600;
+      font-size: 15px;
+
+      > p {
+        margin: 5px 0;
+      }
+    }
+
+    .developers {
+      display: flex;
+      gap: 10px;
+
+      .divisor {
+        margin-top: 0.5vh;
+        width: 5px;
+        border-left: 1px solid var(--white-l);
+      }
+    }
+
+    .wesley,
+    .marcelo {
+      display: flex;
+      flex-direction: column;
+
+      > div {
+        display: flex;
+        align-self: center;
+        gap: 10px;
+
+        a {
+          color: var(--white-l);
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      .content {
+        font-size: 20px;
       }
     }
   }

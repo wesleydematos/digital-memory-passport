@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 import { StyledHome } from "./style";
 import Socials from "../../components/Socials";
 import ProfileDropdown from "../../components/Dropdown";
+import Footer from "../../components/Footer";
 
 import pageDown from "../../assets/pagedown.gif";
 import pin from "../../assets/pin.png";
@@ -242,10 +243,28 @@ function Teste() {
           </div>
         </div>
       </div>
-      {/* <div className="bg-rdstep">
-        <div className="ndstep-triangle triangle" />
-        <div className="content-rdstep"></div>
-      </div> */}
+      <div className="bg-rdstep">
+        <div className="rdstep-triangle triangle" />
+        <div className="content-rdstep">
+          <h1>
+            ROAD <br />
+            <span>MAP</span>
+          </h1>
+
+          <div>
+            <div className="rdStep">
+              <img src={pin} alt="pin" />
+              <p>THIRD STEP:</p>
+            </div>
+
+            <p>
+              Empower memory holders and partners to create their own digital
+              passports and unlock the profits from your personal adventures.
+            </p>
+          </div>
+        </div>
+      </div>
+      <Footer />
     </StyledHome>
   );
 }

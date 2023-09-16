@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const StyledAboutUs = styled.div`
   color: var(--white-l);
+  min-height: 100vh;
+  background-color: var(--orange-l);
 
   .pageOne,
   .pageTwo {
@@ -39,10 +41,6 @@ export const StyledAboutUs = styled.div`
     display: none;
     position: absolute;
     background-color: var(--blue-l);
-
-    @media (min-width: 1024px) {
-      display: block;
-    }
   }
 
   .triangle {
@@ -54,16 +52,15 @@ export const StyledAboutUs = styled.div`
   }
 
   .triangleTwo {
-    margin-top: 90vh;
     height: 25vh;
     width: 75vw;
     left: 0;
+    bottom: 0;
     clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
   }
 
   .pageOne {
     h1 {
-      z-index: 1000;
       align-self: center;
       text-align: center;
       line-height: 0.6;
@@ -98,11 +95,6 @@ export const StyledAboutUs = styled.div`
   }
 
   @media (min-width: 1024px) {
-    .pageOne,
-    .pageTwo {
-      min-height: 115vh;
-    }
-
     .soulful {
       top: 0;
     }
@@ -112,6 +104,7 @@ export const StyledAboutUs = styled.div`
     }
 
     .pageOne {
+      margin-bottom: 100px;
       h1 {
         font-size: 4.85rem;
 
@@ -119,10 +112,6 @@ export const StyledAboutUs = styled.div`
           font-size: 14.85rem;
         }
       }
-    }
-
-    .pageTwo {
-      justify-content: flex-start;
     }
   }
 
@@ -133,6 +122,13 @@ export const StyledAboutUs = styled.div`
 
     p {
       font-size: 2rem;
+    }
+  }
+
+  @media (min-width: 2560px) {
+    .triangle,
+    .triangleTwo {
+      display: block;
     }
   }
 `;

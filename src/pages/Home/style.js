@@ -61,6 +61,82 @@ export const StyledHome = styled.main`
     clip-path: polygon(100% 100%, 100% 0%, 0% 0%);
   }
 
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content-howget,
+  .content-yourmemory,
+  .content-joinus {
+    font-family: "Open Sans", sans-serif;
+    justify-content: space-around;
+    padding: 10px 20px;
+    min-height: 100vh;
+  }
+
+  .content-ststep,
+  .content-ndstep,
+  .content-rdstep {
+    align-items: center;
+    justify-content: end;
+    height: 100%;
+    padding-top: 30px;
+
+    h1 {
+      text-align: center;
+      color: var(--white-l);
+      font-size: 5rem;
+      line-height: 0.55;
+      font-weight: 900;
+
+      span {
+        font-size: 5.5rem;
+      }
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+
+      > p {
+        width: 90%;
+        margin-top: 3vh;
+        text-align: center;
+        align-self: center;
+        color: var(--white-l);
+      }
+    }
+  }
+
+  .stStep,
+  .ndStep,
+  .rdStep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      z-index: 1;
+      height: 200px;
+      width: 200px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+
+    div > p {
+      width: 90%;
+      margin-top: 3vh;
+      text-align: center;
+      align-self: center;
+      color: var(--white-l);
+    }
+  }
+
   @media (min-width: 768px) {
     .square {
       height: 250px;
@@ -69,6 +145,25 @@ export const StyledHome = styled.main`
 
     .text {
       font-size: 2rem;
+    }
+
+    .content-ststep,
+    .content-ndstep,
+    .content-rdstep {
+      h1 {
+        font-size: 6rem;
+      }
+
+      p {
+        font-size: 2rem;
+      }
+    }
+
+    .stStep > img,
+    .ndStep > img,
+    .rdStep > img {
+      height: 250px;
+      width: 250px;
     }
   }
 
@@ -89,6 +184,65 @@ export const StyledHome = styled.main`
     .bg {
       height: 100vh;
     }
+
+    .content-ststep,
+    .content-ndstep,
+    .content-rdstep {
+      justify-content: center;
+
+      h1 {
+        position: absolute;
+        right: 17vw;
+        font-size: 12rem;
+        line-height: 0.4;
+
+        span {
+          font-size: 10rem;
+        }
+      }
+
+      > div {
+        flex-direction: row;
+
+        p {
+          width: 50vw;
+          align-self: center;
+          padding-right: 30px;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .stStep,
+    .ndStep,
+    .rdStep {
+      width: 50vw;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        z-index: 1;
+        height: 400px;
+        width: 450px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 5rem;
+      }
+    }
+
+    .content-ststep > h1 {
+      top: 425vh;
+    }
+
+    .content-ndstep > h1 {
+      top: 525vh;
+    }
+
+    .content-rdstep > h1 {
+      top: 625vh;
+    }
   }
 
   @media (min-width: 2400px) {
@@ -99,9 +253,12 @@ export const StyledHome = styled.main`
   }
 
   //UnlockPassport
+  .unlock-triangle {
+    bottom: 0;
+    left: 0;
+  }
+
   .content-unlock {
-    display: flex;
-    flex-direction: column;
     height: 100vh;
     overflow: hidden;
 
@@ -201,13 +358,6 @@ export const StyledHome = styled.main`
   }
 
   .content-howget {
-    display: flex;
-    flex-direction: column;
-    font-family: "Open Sans", sans-serif;
-    justify-content: space-around;
-    padding: 10px 20px;
-    min-height: 100vh;
-
     .section-text {
       display: flex;
       flex-direction: column;
@@ -315,13 +465,6 @@ export const StyledHome = styled.main`
   }
 
   .content-yourmemory {
-    display: flex;
-    flex-direction: column;
-    font-family: "Open Sans", sans-serif;
-    justify-content: space-around;
-    padding: 10px 20px;
-    min-height: 100vh;
-
     .section-text {
       display: flex;
       flex-direction: column;
@@ -428,13 +571,6 @@ export const StyledHome = styled.main`
   }
 
   .content-joinus {
-    display: flex;
-    flex-direction: column;
-    font-family: "Open Sans", sans-serif;
-    justify-content: space-around;
-    padding: 10px 20px;
-    min-height: 100vh;
-
     .section-text {
       display: flex;
       flex-direction: column;
@@ -541,117 +677,12 @@ export const StyledHome = styled.main`
   }
 
   .content-ststep {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: end;
-    height: 100%;
-    padding-top: 30px;
-
-    h1 {
-      text-align: center;
-      color: var(--white-l);
-      font-size: 5rem;
-      line-height: 0.55;
-      font-weight: 900;
-
-      span {
-        color: var(--orange-l);
-        font-size: 5.5rem;
-      }
+    h1 > span {
+      color: var(--orange-l);
     }
 
-    > div {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .stStep {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      img {
-        z-index: 1;
-        height: 200px;
-        width: 200px;
-      }
-
-      p {
-        text-align: center;
-        color: var(--orange-l);
-        font-size: 1.5rem;
-        font-weight: 900;
-      }
-    }
-
-    div > p {
-      width: 90%;
-      margin-top: 3vh;
-      text-align: center;
-      align-self: center;
-      color: var(--white-l);
-    }
-
-    @media (min-width: 768px) {
-      h1 {
-        font-size: 6rem;
-      }
-
-      .stStep > img {
-        height: 250px;
-        width: 250px;
-      }
-
-      p {
-        font-size: 2rem;
-      }
-    }
-
-    @media (min-width: 1800px) {
-      justify-content: center;
-
-      > div {
-        flex-direction: row;
-      }
-
-      .stStep,
-      > div > p {
-        width: 50vw;
-      }
-
-      .stStep {
-        align-items: center;
-        justify-content: center;
-        img {
-          z-index: 1;
-          height: 400px;
-          width: 450px;
-        }
-
-        p {
-          margin: 0;
-          font-size: 5rem;
-        }
-      }
-
-      h1 {
-        position: absolute;
-        top: 425vh;
-        right: 17vw;
-        font-size: 12rem;
-        line-height: 0.4;
-
-        span {
-          font-size: 10rem;
-        }
-      }
-
-      > div > p {
-        align-self: center;
-        padding-right: 30px;
-        font-weight: 500;
-      }
+    .stStep > p {
+      color: var(--orange-l);
     }
   }
 
@@ -661,117 +692,12 @@ export const StyledHome = styled.main`
   }
 
   .content-ndstep {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: end;
-    height: 100%;
-    padding-top: 30px;
-
-    h1 {
-      text-align: center;
-      color: var(--white-l);
-      font-size: 5rem;
-      line-height: 0.55;
-      font-weight: 900;
-
-      span {
-        color: var(--blue-l);
-        font-size: 5.5rem;
-      }
+    h1 > span {
+      color: var(--blue-l);
     }
 
-    > div {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .ndStep {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      img {
-        z-index: 1;
-        height: 200px;
-        width: 200px;
-      }
-
-      p {
-        text-align: center;
-        color: var(--blue-l);
-        font-size: 1.5rem;
-        font-weight: 900;
-      }
-    }
-
-    div > p {
-      width: 90%;
-      margin-top: 3vh;
-      text-align: center;
-      align-self: center;
-      color: var(--white-l);
-    }
-
-    @media (min-width: 768px) {
-      h1 {
-        font-size: 6rem;
-      }
-
-      .ndStep > img {
-        height: 250px;
-        width: 250px;
-      }
-
-      p {
-        font-size: 2rem;
-      }
-    }
-
-    @media (min-width: 1800px) {
-      justify-content: center;
-
-      > div {
-        flex-direction: row;
-      }
-
-      .ndStep,
-      > div > p {
-        width: 50vw;
-      }
-
-      .ndStep {
-        align-items: center;
-        justify-content: center;
-        img {
-          z-index: 1;
-          height: 400px;
-          width: 450px;
-        }
-
-        p {
-          margin: 0;
-          font-size: 5rem;
-        }
-      }
-
-      h1 {
-        position: absolute;
-        top: 525vh;
-        right: 17vw;
-        font-size: 12rem;
-        line-height: 0.4;
-
-        span {
-          font-size: 10rem;
-        }
-      }
-
-      > div > p {
-        align-self: center;
-        padding-right: 30px;
-        font-weight: 500;
-      }
+    .ndStep > p {
+      color: var(--blue-l);
     }
   }
 
@@ -781,117 +707,12 @@ export const StyledHome = styled.main`
   }
 
   .content-rdstep {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: end;
-    height: 100%;
-    padding-top: 30px;
-
-    h1 {
-      text-align: center;
-      color: var(--white-l);
-      font-size: 5rem;
-      line-height: 0.55;
-      font-weight: 900;
-
-      span {
-        color: var(--orange-l);
-        font-size: 5.5rem;
-      }
+    h1 > span {
+      color: var(--orange-l);
     }
 
-    > div {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .rdStep {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      img {
-        z-index: 1;
-        height: 200px;
-        width: 200px;
-      }
-
-      p {
-        text-align: center;
-        color: var(--orange-l);
-        font-size: 1.5rem;
-        font-weight: 900;
-      }
-    }
-
-    div > p {
-      width: 90%;
-      margin-top: 3vh;
-      text-align: center;
-      align-self: center;
-      color: var(--white-l);
-    }
-
-    @media (min-width: 768px) {
-      h1 {
-        font-size: 6rem;
-      }
-
-      .rdStep > img {
-        height: 250px;
-        width: 250px;
-      }
-
-      p {
-        font-size: 2rem;
-      }
-    }
-
-    @media (min-width: 1800px) {
-      justify-content: center;
-
-      > div {
-        flex-direction: row;
-      }
-
-      .rdStep,
-      > div > p {
-        width: 50vw;
-      }
-
-      .rdStep {
-        align-items: center;
-        justify-content: center;
-        img {
-          z-index: 1;
-          height: 400px;
-          width: 450px;
-        }
-
-        p {
-          margin: 0;
-          font-size: 5rem;
-        }
-      }
-
-      h1 {
-        position: absolute;
-        top: 625vh;
-        right: 17vw;
-        font-size: 12rem;
-        line-height: 0.4;
-
-        span {
-          font-size: 10rem;
-        }
-      }
-
-      > div > p {
-        align-self: center;
-        padding-right: 30px;
-        font-weight: 500;
-      }
+    .rdStep > p {
+      color: var(--orange-l);
     }
   }
 `;

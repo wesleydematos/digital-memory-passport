@@ -67,7 +67,7 @@ function Home() {
     <StyledHome>
       <div className="bg bg-blue">
         <div className="unlock-triangle triangle bg-orange" />
-        <div className="content-unlock">
+        <div className="content-unlock content">
           <header>
             <div className="socials">
               <Socials />
@@ -108,7 +108,7 @@ function Home() {
       </div>
       <div className="bg bg-orange">
         <div className="howget-triangle triangle bg-blue" />
-        <div className="content-howget">
+        <div className="content-howget content">
           <section className="section-text">
             <h1>
               HOW TO GET <span>YOUR&#39;S?</span>
@@ -140,7 +140,7 @@ function Home() {
       </div>
       <div className="bg bg-orange">
         <div className="memory-triangle triangle bg-blue" />
-        <div className="content-yourmemory">
+        <div className="content-yourmemory content">
           <section className="section-text">
             <p className="text">
               Embark on a captivating journey of nostalgia and exploration by
@@ -171,7 +171,7 @@ function Home() {
       </div>
       <div className="bg bg-blue">
         <div className="joinus-triangle triangle bg-orange" />
-        <div className="content-joinus">
+        <div className="content-joinus content">
           <section className="section-text">
             <p className="text">
               Embrace the advantages of owning a Digital Memory Passport and
@@ -203,7 +203,7 @@ function Home() {
       </div>
       <div className="bg bg-blue">
         <div className="ststep-triangle triangle bg-orange" />
-        <div className="content-ststep">
+        <div className="content-ststep content">
           <h1>
             ROAD <br />
             <span>MAP</span>
@@ -223,8 +223,8 @@ function Home() {
         </div>
       </div>
       <div className="bg bg-orange">
-        <div className="ndstep-triangle triangle bg-orange" />
-        <div className="content-ndstep">
+        <div className="ndstep-triangle triangle bg-blue" />
+        <div className="content-ndstep content">
           <h1>
             ROAD <br />
             <span>MAP</span>
@@ -244,8 +244,8 @@ function Home() {
         </div>
       </div>
       <div className="bg bg-blue">
-        <div className="rdstep-triangle triangle bg-blue" />
-        <div className="content-rdstep">
+        <div className="rdstep-triangle triangle bg-orange" />
+        <div className="content-rdstep content">
           <h1>
             ROAD <br />
             <span>MAP</span>

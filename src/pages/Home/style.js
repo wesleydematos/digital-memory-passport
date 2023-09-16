@@ -26,6 +26,10 @@ export const StyledHome = styled.main`
     background-color: var(--blue-l);
   }
 
+  .bgsteps {
+    padding: 30px 0;
+  }
+
   .bg-orange {
     background-color: var(--orange-l);
   }
@@ -411,8 +415,13 @@ export const StyledHome = styled.main`
       display: block;
     }
 
-    .bg {
+    .bg,
+    .bgsteps {
       height: 100vh;
+    }
+
+    .bgsteps {
+      padding: 0;
     }
 
     .content-ststep,

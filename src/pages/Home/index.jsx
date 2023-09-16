@@ -201,7 +201,7 @@ function Home() {
           </section>
         </div>
       </div>
-      <div className="bg bg-blue">
+      <div className="bg-blue bgsteps">
         <div className="ststep-triangle triangle bg-orange" />
         <div className="content-ststep content">
           <h1>
@@ -222,7 +222,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="bg bg-orange">
+      <div className="bg-orange bgsteps">
         <div className="ndstep-triangle triangle bg-blue" />
         <div className="content-ndstep content">
           <h1>
@@ -243,7 +243,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="bg bg-blue">
+      <div className="bg-blue bgsteps">
         <div className="rdstep-triangle triangle bg-orange" />
         <div className="content-rdstep content">
           <h1>

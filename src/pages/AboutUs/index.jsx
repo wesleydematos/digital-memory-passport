@@ -6,6 +6,7 @@ function AboutUs() {
 
   return (
     <StyledAboutUs>
+      <div className="triangle" />
       <div className="pageOne">
         <p
           className="soulful"
@@ -14,7 +15,6 @@ function AboutUs() {
         >
           SOULFUL
         </p>
-        <div className="triangle" />
         <h1>
           ABOUT <br />
           <span>US</span>
@@ -47,7 +47,6 @@ function AboutUs() {
       </div>
 
       <div className="pageTwo">
-        <div className="triangleTwo" />
         <p>
           The primary objective of <i>Soulful Lab</i> -{" "}
           <a href="">Digital Passport NFT</a> is to empower travellers by
@@ -79,6 +78,7 @@ function AboutUs() {
           of collecting Memories.
         </p>
       </div>
+      <div className="triangleTwo" />
     </StyledAboutUs>
   );
 }

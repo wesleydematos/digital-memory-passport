@@ -101,7 +101,7 @@ function Home() {
             )}
           </header>
           <div className="dropdown-unlock">
-            <h1>UNLOCK YOUR PASSPORT OF DIGITAL MEMORIES</h1>
+            <h1 id="drop">UNLOCK YOUR PASSPORT OF DIGITAL MEMORIES</h1>
             <img src={pageDown} alt="Page Down Gif" onClick={scrollDown} />
           </div>
         </div>
@@ -110,7 +110,7 @@ function Home() {
         <div className="howget-triangle triangle bg-blue" />
         <div className="content-howget content">
           <section className="section-text">
-            <h1>
+            <h1 className="mb">
               HOW TO GET <span>YOUR&#39;S?</span>
             </h1>
             <p className="text">
@@ -148,7 +148,7 @@ function Home() {
               concept allows you to capture and cherish your most cherished
               moments in a unique and digital format.
             </p>
-            <h1>
+            <h1 className="mt">
               MINT <br />
               <span>YOUR MEMORIE</span>
             </h1>
@@ -179,7 +179,7 @@ function Home() {
               connections. Join the community and let your passport become a
               gateway to unforgettable adventures and meaningful interactions.
             </p>
-            <h1>
+            <h1 className="mt">
               JOIN <br />
               <span>US</span>
             </h1>
